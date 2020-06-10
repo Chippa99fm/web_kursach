@@ -24,22 +24,22 @@
                 <ul>
                     <li id="login">
                         <a id="login-trigger" href="#">
-                            Войти 
+                            Войти
                         </a>
                         <div id="login-content">
                             <form>
                                 <fieldset id="inputs">
                                     <input id="username" type="email" name="Email" placeholder="Ваш email адрес" required>
                                     <input id="password" type="password" name="Password" placeholder="Пароль" required>
-                             
+
                                     <input type="submit" id="submit" value="Войти">
                                 </fieldset>
                             </form>
                         </div>
                     </li>
-                    
+
                 </ul>
-               <a href="register.php">Регистрация</a> 
+                <a href="">Регистрация</a>
             </nav>
         </div>
         <div class="seredina" id='seredina'>
@@ -54,7 +54,6 @@
                                     <li class="jj"><a href="#">Аксесуары</a></li>
                                     <li class="jjj"><a href="#"></a></li>
                                 </ul>
-
                             </li>
                         </ul>
                     </nav>
@@ -62,13 +61,44 @@
                         Контакты
                     </div>
                 </div>
-                <img src="%D0%B2%D0%B5%D0%BB%D0%BE%D1%81%D0%B8%D0%BF%D0%B5%D0%B6.PNG" style="padding-left: 25vw; width: 65%; padding-top: 1vh;">
+                <form action="save_user.php" method="post">
+                    <div class="reg_midle">
+                        <div id="reg_title">Регистрация</div>
+                        <div id="reg_body" class="body_cont">
+
+                            <div>
+                                <a>Электронная почта</a>
+                                <input id="email" type="email" name="email" autocomplete="off">
+                            </div>
+                            <div>
+                                <a>Пароль</a>
+                                <input id="password" type="password" name="password" autocomplete="off">
+                            </div>
+                            <div>
+                                <a>Подтверждение пароля</a>
+                                <input id="passwordAgain" type="password" name="passwordAgain" autocomplete="off">
+                            </div>
+                            <div>
+                                <a>Фамилия </a>
+                                <input id="second_name" name="second_name" type="text" autocomplete="off">
+                            </div>
+                            <div>
+                                <a>Имя</a>
+                                <input id="first_name" name="first_name" type="text" autocomplete="off">
+                            </div>
+                            <div>
+                                <a>Телефон</a>
+                                <input id="phone_number" type="phone" name="phone_number" autocomplete="off">
+                            </div>
+                            <div><input type="submit" id="submit" value="Зарегистрироваться" autocomplete="off"></div>
+
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-
         <div class="niz">
         </div>
-
     </div>
 
     <script>
@@ -78,6 +108,7 @@
                 $(this).toggleClass('active');
             })
         });
+
     </script>
 </body>
 
