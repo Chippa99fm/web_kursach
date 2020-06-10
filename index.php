@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <title>Велосипеды</title>
-    <link rel="stylesheet" href='css/grid.css'>
+    <link rel="stylesheet" href='css/index.css'>
     <script ENGINE="text/javascript" src="https://code.jquery.com/jquery-1.11.2.js "></script>
 </head>
 
@@ -24,22 +24,22 @@
                 <ul>
                     <li id="login">
                         <a id="login-trigger" href="#">
-                            Войти 
+                            Войти
                         </a>
                         <div id="login-content">
                             <form>
                                 <fieldset id="inputs">
                                     <input id="username" type="email" name="Email" placeholder="Ваш email адрес" required>
                                     <input id="password" type="password" name="Password" placeholder="Пароль" required>
-                             
+
                                     <input type="submit" id="submit" value="Войти">
                                 </fieldset>
                             </form>
                         </div>
                     </li>
-                    
+
                 </ul>
-               <a href="">Регистрация</a> 
+                <a href="">Регистрация</a>
             </nav>
         </div>
         <div class="seredina" id='seredina'>
@@ -62,7 +62,19 @@
                         Контакты
                     </div>
                 </div>
-                <img src="%D0%B2%D0%B5%D0%BB%D0%BE%D1%81%D0%B8%D0%BF%D0%B5%D0%B6.PNG" style="padding-left: 25vw; width: 65%; padding-top: 1vh;">
+
+                <div id="slider-wrap" class="slider">
+                    <div id="slider">
+                        <div class="slide" style="background: url(img/001.jpg) no-repeat center; background-size: cover;">
+                            
+                        </div>
+                        <div class="slide" style="background: url(img/002.jpg) no-repeat center; background-size: cover;">
+                            
+                        </div>
+                        <div class="slide" style="background: url(img/003.jpg) no-repeat center; background-size: cover;"><iframe width="100%" height="100%" src="http://www.youtube.com/embed/LDZX4ooRsWs?list=PLH6pfBXQXHECUaIU3bu9rjG2L6Uhl5A2q" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="slide" style="background: url(img/004.jpg) no-repeat center; background-size: cover;"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -78,6 +90,97 @@
                 $(this).toggleClass('active');
             })
         });
+
+    </script>
+
+    <script>
+        (function($) {
+            var hwSlideSpeed = 700;
+            var hwTimeOut = 3000;
+            var hwNeedLinks = true;
+            var slilinkss = true;
+
+
+            $(document).ready(function(e) {
+                $('.slide').css({
+                    "position": "absolute",
+                    "top": '0',
+                    "left": '0'
+                }).hide().eq(0).show();
+                $('#login-trigger').click();
+                var slideNum = 0;
+                var slideTime;
+                slideCount = $("#slider .slide").size();
+                var animSlide = function(arrow) {
+                    clearTimeout(slideTime);
+                    $('.slide').eq(slideNum).fadeOut(hwSlideSpeed);
+                    if (arrow == "next") {
+                        if (slideNum == (slideCount - 1)) {
+                            slideNum = 0;
+                        } else {
+                            slideNum++
+                        }
+                    } else if (arrow == "prew") {
+                        if (slideNum == 0) {
+                            slideNum = slideCount - 1;
+                        } else {
+                            slideNum -= 1
+                        }
+                    } else {
+                        slideNum = arrow;
+                    }
+                    $('.slide').eq(slideNum).fadeIn(hwSlideSpeed, rotator);
+                    $(".control-slide.active").removeClass("active");
+                    $('.control-slide').eq(slideNum).addClass('active');
+                }
+                if (hwNeedLinks) {
+                    var $linkArrow = $('<a id="prewbutton" href="#">&lt;</a><a id="nextbutton" href="#">&gt;</a>')
+                        .prependTo('#slider');
+                    $('#nextbutton').click(function() {
+                        animSlide("next");
+                        return false;
+                    })
+                    $('#prewbutton').click(function() {
+                        animSlide("prew");
+                        return false;
+                    })
+                }
+                var $adderSpan = '';
+                $('.slide').each(function(index) {
+                    $adderSpan += '<span class = "control-slide">' + index + '</span>';
+                });
+                $('<div class ="sli-links">' + $adderSpan + '</div>').appendTo('#slider-wrap');
+                $(".control-slide:first").addClass("active");
+                $('.control-slide').click(function() {
+                    var goToNum = parseFloat($(this).text());
+                    animSlide(goToNum);
+                });
+                var pause = false;
+                var rotator = function() {
+                    if (!pause) {
+                        slideTime = setTimeout(function() {
+                            animSlide('next')
+                        }, hwTimeOut);
+                    }
+                }
+                $('#slider-wrap').hover(
+                    function() {
+                        clearTimeout(slideTime);
+                        pause = true;
+                    },
+                    function() {
+                        pause = false;
+                        rotator();
+                    });
+                rotator();
+
+
+                if (!slilinkss) $('.sli-links').css({
+                    "display": "none"
+                });
+            });
+        })(jQuery);
+
     </script>
 </body>
 

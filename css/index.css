@@ -43,6 +43,16 @@
     /* Для основноого контента (изображения) */
     padding-right: 10px;
     align-content: space-between;
+     display: grid;
+        grid-template-rows: 1fr 13fr;
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas: "imi2 imi2"
+                            ". slider";
+
+}
+
+.slider{
+        grid-area: slider;
 
 }
 
@@ -135,9 +145,10 @@
 
 
 .imi2 {
+            grid-area: imi2;
+z-index: 1;
     text-align: center;
     font-size: 4.2vh;
-    grid-area: imi;
     /* "хэдер" */
 
     padding: 1vh;
@@ -145,34 +156,6 @@
     justify-content: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-}
-
-.menuL {
-    grid-area: levo;
-    border: 1px solid white;
-    background-color: #1D5B8A;
-    /* класс для меню */
-    display: flex;
-    justify-content: flex-start;
-}
-
-.infa {
-    background-color: #1D5B8A;
-    font-size: 0.96em;
-    /* класс для отображения местоположения на сайте */
-    opacity: 0.9;
-}
-
-#menu {
-    background-image: url(https://cdn4.iconfinder.com/data/icons/tupix-1/30/list-512.png);
-
-    background-repeat: no-repeat;
-    /* отображение каритинки для меню */
-    background-size: contain;
-    background-position: center;
-    display: inline-block;
-
-
 }
 
 .contentprav {
@@ -202,56 +185,7 @@
     cursor: pointer;
 }
 
-.menuL {
-    background-image: url(https://cdn4.iconfinder.com/data/icons/tupix-1/30/list-512.png);
-    /* отображение маленькой каритинки для меню */
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    background-position: bottom;
-    display: inline-block;
 
-
-}
-
-.menuVerh {
-    transition: background-color .5s ease;
-    padding: 1vh;
-    border-right: 1px solid white;
-    /* класс для верхних эллементов */
-    border-left: 1px solid white;
-    display: flex;
-    align-items: center;
-    min-width: 50px;
-
-}
-
-.Levo1 {
-    /* класс для постепенного изменение цвета пункта меню */
-    transition: background-color .5s ease;
-}
-
-.menuVerh:hover {
-    /* для постепенного изменение цвета пункта меню */
-    background-color: #1D5B8A !important;
-
-
-}
-
-.menuLevo:hover {
-    /* для постепенного изменение цвета пункта меню */
-    background-color: goldenrod !important;
-
-}
-
-.meluL:hover {
-    /* для постепенного изменение цвета пункта меню */
-    background-color: goldenrod !important;
-}
-
-.contentprav:hover {
-    /* для постепенного изменение цвета пункта меню */
-    background-color: goldenrod !important;
-}
 
 #log {
     font-size: 0.5em;
@@ -312,57 +246,109 @@ ul ul li {
     position: relative;
     min-width: 45vh;
 }
+
 /*********************************************/
 
 #inputs input {
-  background: #f1f1f1;
-  padding: 6px 5px;
-  margin: 0 0 5px 0;
-  width: 238px;
-  border: 1px solid #ccc;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  -moz-box-shadow: 0 1px 1px #ccc inset;
-  -webkit-box-shadow: 0 1px 1px #ccc inset;
-  box-shadow: 0 1px 1px #ccc inset;
+    background: #f1f1f1;
+    padding: 6px 5px;
+    margin: 0 0 5px 0;
+    width: 238px;
+    border: 1px solid #ccc;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 0 1px 1px #ccc inset;
+    -webkit-box-shadow: 0 1px 1px #ccc inset;
+    box-shadow: 0 1px 1px #ccc inset;
 }
 
 
 /*--------------------*/
 
 #login #actions {
-  margin: 10px 0 0 0;
+    margin: 10px 0 0 0;
 }
 
 
 
-#login #submit {		
-  background-color: #e97171;
-}	
+#login #submit {
+    background-color: #e97171;
+}
 
-#login #submit:active {		
-  outline: none;
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+#login #submit:active {
+    outline: none;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
 }
 
 #login #submit::-moz-focus-inner {
-  border: none;
+    border: none;
 }
 
 #login label {
-  float: right;
-  line-height: 30px;
+    float: right;
+    line-height: 30px;
 }
 
 #login label input {
-  position: relative;
-  top: 2px;
-  right: 2px;
+    position: relative;
+    top: 2px;
+    right: 2px;
 }
 
 .login_form {
-    font-size: 0.51em; 
+    z-index: 2;
+    font-size: 0.51em;
 }
+
+/**************************************************/
+
+#slider-wrap {
+    z-index: 0;
+}
+
+#slider {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+#slider img {
+
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+}
+
+.sli-links {
+    border-color: black;
+    text-align: center;
+}
+
+.sli-links .control-slide {
+            background-color: black;
+
+    margin: 2px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+.sli-links .control-slide:hover {
+            background-color: gainsboro;
+
+    cursor: pointer;
+    background-position: center center;
+}
+
+.sli-links .control-slide.active {
+    background-position: center top;
+}
+
+
+
+
