@@ -1,5 +1,8 @@
 <?php
     session_start();
+$error = $_SESSION["error"];
+unset($_SESSION["error"]);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,35 +66,39 @@
                 </div>
                 <form action="save_user.php" method="post">
                     <div class="reg_midle">
-                        <div id="reg_title">Регистрация</div>
+                        <div id="reg_title">Регистрация</div>                            
+                        
                         <div id="reg_body" class="body_cont">
 
+
                             <div>
-                                <a>Электронная почта</a>
+                                <a>Электронная почта</a> <br>
                                 <input id="email" type="email" name="email" autocomplete="off">
                             </div>
                             <div>
-                                <a>Пароль</a>
+                                <a>Пароль</a><br>
                                 <input id="password" type="password" name="password" autocomplete="off">
                             </div>
                             <div>
-                                <a>Подтверждение пароля</a>
+                                <a>Подтверждение пароля</a><br>
                                 <input id="passwordAgain" type="password" name="passwordAgain" autocomplete="off">
                             </div>
                             <div>
-                                <a>Фамилия </a>
+                                <a>Фамилия </a><br>
                                 <input id="second_name" name="second_name" type="text" autocomplete="off">
                             </div>
                             <div>
-                                <a>Имя</a>
+                                <a>Имя</a><br>
                                 <input id="first_name" name="first_name" type="text" autocomplete="off">
                             </div>
                             <div>
-                                <a>Телефон</a>
+                                <a>Телефон</a><br>
                                 <input id="phone_number" type="phone" name="phone_number" autocomplete="off">
                             </div>
                             <div><input type="submit" id="submit" value="Зарегистрироваться" autocomplete="off"></div>
-
+                            <?php
+                                echo "<br />".$error."<br />";
+                            ?>
                         </div>
                     </div>
                 </form>

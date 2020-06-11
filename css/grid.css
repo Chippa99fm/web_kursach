@@ -280,7 +280,15 @@ ul ul li {
     margin: 10px 0 0 0;
 }
 
+nav #login-content {
+  display: none;
+  position: absolute;
+  top: 24px;
+  right: 0;
+  z-index: 999;
+        background-color: #1D5B8A;
 
+}
 
 #login #submit {
     background-color: white;
@@ -346,11 +354,13 @@ ul ul li {
 }
 
 .body_cont {
+    padding: 2vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-row-gap: 7vh;
+    grid-row-gap: 5vh;
 }
 
-
+input{
+    color: black;
 }

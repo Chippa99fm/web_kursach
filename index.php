@@ -39,9 +39,7 @@
                     </li>
 
                 </ul>
-                <ul>
-               <a href="register.php">Регистрация</a> 
-                </ul>
+                <a href="register.php">Регистрация</a>
             </nav>
         </div>
         <div class="seredina" id='seredina'>
@@ -68,10 +66,10 @@
                 <div id="slider-wrap" class="slider">
                     <div id="slider">
                         <div class="slide" style="background: url(img/001.jpg) no-repeat center; background-size: cover;">
-                            
+
                         </div>
                         <div class="slide" style="background: url(img/002.jpg) no-repeat center; background-size: cover;">
-                            
+
                         </div>
                         <div class="slide" style="background: url(img/003.jpg) no-repeat center; background-size: cover;"><iframe width="100%" height="100%" src="http://www.youtube.com/embed/LDZX4ooRsWs?list=PLH6pfBXQXHECUaIU3bu9rjG2L6Uhl5A2q" frameborder="0" allowfullscreen></iframe></div>
                         <div class="slide" style="background: url(img/004.jpg) no-repeat center; background-size: cover;"></div>
@@ -90,9 +88,12 @@
             $('#login-trigger').click(function() {
                 $(this).next('#login-content').slideToggle();
                 $(this).toggleClass('active');
+
+                if ($(this).hasClass('active')) $(this).find('span').html('')
+                else $(this).find('span').html('')
             })
         });
-
+    
     </script>
 
     <script>
@@ -109,7 +110,6 @@
                     "top": '0',
                     "left": '0'
                 }).hide().eq(0).show();
-                $('#login-trigger').click();
                 var slideNum = 0;
                 var slideTime;
                 slideCount = $("#slider .slide").size();

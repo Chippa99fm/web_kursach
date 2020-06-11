@@ -14,11 +14,20 @@ if (isset($_POST['phone_number'])) { $phone_number=$_POST['phone_number']; if ($
 
 
 if (Condition) {
-    if (empty(first_name) or empty(second_name) or empty($password) or empty($email)) {
-        exit ("Вы ввели не всю информацию, вернитесь назад и заполните все поля!");
+    if (empty($first_name) or empty($second_name) or empty($password) or empty($email)) {
+        session_start();
+            $_SESSION["error"] = "Не введены все обязательные значения";
+
+    header('Location: register.php');
+                exit();
+
     }
     if ($password != $passwordAgain){
-        exit ("Пароли не совпадают!");
+        session_start();
+            $_SESSION["error"] = "Пароли не совпадают";
+        header('Location: register.php');
+        exit();
+    
     }
    /* if ($check != true){
         exit ("Нет согласия на обработку персональных данных");
@@ -57,9 +66,15 @@ $result2 = mysqli_query ($db, "INSERT INTO users (email, first_name, id_user,id_
 // Проверяем, есть ли ошибки
 if ($result2=='TRUE')
 {
-    echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='index.php'>Главная страница</a>";
+        session_start();
+     $_SESSION["error"] = "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт";
+    header('Location: register.php');
+    exit();
 }
 else {
-    echo "Ошибка! Вы не зарегистрированы.";
+    session_start();
+    $_SESSION["error"] = "Ошибка регистрации";
+    header('Location: register.php');
+                exit();
 }
 ?>
