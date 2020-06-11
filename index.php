@@ -39,7 +39,9 @@
                     </li>
 
                 </ul>
-                <a href="">Регистрация</a>
+                <ul>
+               <a href="register.php">Регистрация</a> 
+                </ul>
             </nav>
         </div>
         <div class="seredina" id='seredina'>

@@ -42,16 +42,6 @@
     /* Для основноого контента (изображения) */
     padding-right: 10px;
     align-content: space-between;
-     display: grid;
-        grid-template-rows: 1fr 13fr;
-        grid-template-columns: 1fr 3fr;
-        grid-template-areas: "imi2 imi2"
-                            ". slider";
-
-}
-
-.slider{
-        grid-area: slider;
 
 }
 
@@ -144,10 +134,9 @@
 
 
 .imi2 {
-            grid-area: imi2;
-z-index: 1;
     text-align: center;
     font-size: 4.2vh;
+    grid-area: imi;
     /* "хэдер" */
 
     padding: 1vh;
@@ -155,6 +144,34 @@ z-index: 1;
     justify-content: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.menuL {
+    grid-area: levo;
+    border: 1px solid white;
+    background-color: #1D5B8A;
+    /* класс для меню */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.infa {
+    background-color: #1D5B8A;
+    font-size: 0.96em;
+    /* класс для отображения местоположения на сайте */
+    opacity: 0.9;
+}
+
+#menu {
+    background-image: url(https://cdn4.iconfinder.com/data/icons/tupix-1/30/list-512.png);
+
+    background-repeat: no-repeat;
+    /* отображение каритинки для меню */
+    background-size: contain;
+    background-position: center;
+    display: inline-block;
+
+
 }
 
 .contentprav {
@@ -182,12 +199,6 @@ z-index: 1;
     font-size: 0.85em;
     padding: 3px 5px;
     cursor: pointer;
-}
-
-
-
-#log {
-    font-size: 0.5em;
 }
 
 /*______________________________*/
@@ -246,6 +257,7 @@ ul ul li {
     min-width: 45vh;
 }
 
+/*----------------------------------------------------------------*/
 
 #inputs input {
     background: #f1f1f1;
@@ -271,12 +283,8 @@ ul ul li {
 
 
 #login #submit {
-
-    background-color: #e97171;
-
     background-color: white;
     color: black;
-
 }
 
 #login #submit:active {
@@ -302,60 +310,6 @@ ul ul li {
 }
 
 .login_form {
-    z-index: 2;
-    font-size: 0.51em;
-}
-
-
-
-#slider-wrap {
-    z-index: 0;
-}
-
-#slider {
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-}
-
-#slider img {
-
-}
-
-.slide {
-    width: 100%;
-    height: 100%;
-}
-
-.sli-links {
-    border-color: black;
-    text-align: center;
-}
-
-.sli-links .control-slide {
-            background-color: black;
-
-    margin: 2px;
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-}
-
-.sli-links .control-slide:hover {
-            background-color: gainsboro;
-
-    cursor: pointer;
-    background-position: center center;
-}
-
-.sli-links .control-slide.active {
-    background-position: center top;
-}
-
-
-
-
-
     font-size: 0.51em;
 }
 
@@ -400,4 +354,3 @@ ul ul li {
 
 
 }
-
