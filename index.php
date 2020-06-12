@@ -14,12 +14,15 @@
 <body>
     <div class="grid">
         <div class="imi" id='imi'>
-            <div class="g">Главная</div>
+            <div class="g"><a href="index.php">Главная</a></div>
             <form class="g">
                 <input type="text" placeholder="Искать здесь...">
                 <button type="submit"></button>
             </form>
             <div></div>
+            <?php
+             if($_COOKIE["logined"] == null) {      
+            ?>
             <nav class="login_form">
                 <ul>
                     <li id="login">
@@ -27,10 +30,10 @@
                             Войти
                         </a>
                         <div id="login-content">
-                            <form>
+                            <form action="login_user.php" method="post">
                                 <fieldset id="inputs">
-                                    <input id="username" type="email" name="Email" placeholder="Ваш email адрес" required>
-                                    <input id="password" type="password" name="Password" placeholder="Пароль" required>
+                                    <input id="username" type="email" name="email" placeholder="Ваш email адрес" required>
+                                    <input id="password" type="password" name="password" placeholder="Пароль" required>
 
                                     <input type="submit" id="submit" value="Войти">
                                 </fieldset>
@@ -41,6 +44,23 @@
                 </ul>
                 <a href="register.php">Регистрация</a>
             </nav>
+            <?php
+             } else {
+               ?>
+
+            <nav class="login_form">
+                <form action="login_user.php" method="post" class="logined_container">
+                        <a href="#">Корзина</a>
+                        <!--Здесь будет корзина* -->
+                        <input type="submit" id="submit" value="Выйти">
+                        <a href="#"><?php echo "<br />" . $_COOKIE["name"] . "<br />"?></a>
+                        <!--/*Здесь будет личный кабинет*/ -->              
+                </form>
+            </nav>
+
+            <?php 
+             }
+            ?>
         </div>
         <div class="seredina" id='seredina'>
             <div class='conpravo'>
@@ -93,7 +113,7 @@
                 else $(this).find('span').html('')
             })
         });
-    
+
     </script>
 
     <script>
