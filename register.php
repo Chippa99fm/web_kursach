@@ -17,7 +17,7 @@ unset($_SESSION["error"]);
 <body>
     <div class="grid">
         <div class="imi" id='imi'>
-            <div class="g">Главная</div>
+                <div class="g"><a href="index.php">Главная</a></div>
             <form class="g">
                 <input type="text" placeholder="Искать здесь...">
                 <button type="submit"></button>
@@ -96,6 +96,7 @@ unset($_SESSION["error"]);
                                 <input id="phone_number" type="phone" name="phone_number" autocomplete="off">
                             </div>
                             <div><input type="submit" id="submit" value="Зарегистрироваться" autocomplete="off"></div>
+                             <div> <input type="checkBox" name="check" value="Accept " id="check" ></div>
                             <?php
                                 echo "<br />".$error."<br />";
                             ?>
