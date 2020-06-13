@@ -1,0 +1,17 @@
+.pole {
+    color: #0B304D;
+    padding-left: 4vw;
+}
+
+.pole h1 {
+    color: #0B304D;
+}
+
+.pole p {
+    color: #0B304D;
+}
+
+.contentpole {
+    grid-template-columns: 5fr 1fr;
+    background-color: #5C99C5;
+}

@@ -1,5 +1,15 @@
 <?php
     session_start();
+include ("db.php");
+
+$id = $_COOKIE["id"];
+$result = mysqli_query($db, "SELECT * FROM users WHERE id_user = '$id'");
+$myrow = mysqli_fetch_array($result);
+$email = $_COOKIE["email"];
+$first_name = $_COOKIE["first_name"];
+$last_name = $_COOKIE["last_name"];
+$password = $_COOKIE["password"];
+$phone = $_COOKIE["phone_number"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,6 +19,8 @@
     <title>Велосипеды</title>
     <link rel="stylesheet" href='css/css.css'>
     <link rel="stylesheet" href='css/user.css'>
+    <link rel="stylesheet" href='css/userdata.css'>
+
 
     <script ENGINE="text/javascript" src="https://code.jquery.com/jquery-1.11.2.js "></script>
 </head>
@@ -90,10 +102,14 @@
                     <a href="#" style="background-color: #5C99C5;">Личные данные</a>
                     <a href="#">Корзина</a>
                     <a href="#">Заказы</a>
-
+                    <a></a>
                 </div>
                 <div class="pole">
-
+                    <h1>Личные данные</h1>
+                    <p>Вы можете изменить или дополнить свои регистрационные данные.</p>
+                    <div class="contentpole">
+                            <p>ffffffffffffffffffffd</p>
+                    </div>
                 </div>
             </div>
         </div>

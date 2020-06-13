@@ -13,12 +13,12 @@
 
 }
 
-.name{
+.name {
     grid-area: name;
     font-size: 3vh;
     color: #0B304D;
-    padding-left: 4vw;
-        padding-top: 2vh;
+    padding-left: 6vw;
+    padding-top: 2vh;
 
 }
 
@@ -30,9 +30,11 @@
 }
 
 .usermenu a {
-        font-size: 2vh;
+    font-size: 2vh;
 
     padding: 2vh;
     border-top: 1px solid #F0F5F9;
     background-color: #1D5B8A;
 }
+
+
