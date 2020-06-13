@@ -1,0 +1,38 @@
+.conpravo {
+    grid-area: conpravo;
+    font-size: .8em;
+    /* Для основноого контента (изображения) */
+    padding-right: 10px;
+    align-content: space-between;
+    display: grid;
+    grid-template-rows: 1fr 1fr 10fr;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas: "imi2 imi2"
+        "name name"
+        "usermenu pole";
+
+}
+
+.name{
+    grid-area: name;
+    font-size: 3vh;
+    color: #0B304D;
+    padding-left: 4vw;
+        padding-top: 2vh;
+
+}
+
+.usermenu {
+    grid-area: usermenu;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.usermenu a {
+        font-size: 2vh;
+
+    padding: 2vh;
+    border-top: 1px solid #F0F5F9;
+    background-color: #1D5B8A;
+}

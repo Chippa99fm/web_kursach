@@ -1,7 +1,5 @@
 <?php
     session_start();
-unset($_SESSION["error"]);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,8 +7,9 @@ unset($_SESSION["error"]);
 <head>
     <meta charset="utf-8">
     <title>Велосипеды</title>
-        <link rel="stylesheet" href='css/css.css'>
-    <link rel="stylesheet" href='css/index.css'>
+    <link rel="stylesheet" href='css/css.css'>
+    <link rel="stylesheet" href='css/user.css'>
+
     <script ENGINE="text/javascript" src="https://code.jquery.com/jquery-1.11.2.js "></script>
 </head>
 
@@ -53,14 +52,14 @@ unset($_SESSION["error"]);
 
             <nav class="login_form">
                 <form action="login_user.php" method="post" class="logined_container">
-                        <a href="#">Корзина
+                    <a href="#">Корзина
                     </a>
-                        <!--Здесь будет корзина* -->
-                        <input type="submit" id="submit" value="Выйти">
-                        <!--/*Здесь будет личный кабинет*/ -->              
+                    <!--Здесь будет корзина* -->
+                    <input type="submit" id="submit" value="Выйти">
+                    <!--/*Здесь будет личный кабинет*/ -->
                 </form>
             </nav>
-                        <a href="homeuser.php"><?php echo "" . $_COOKIE["name"] . ""?></a>
+            <a href="#"><?php echo "" . $_COOKIE["name"] . ""?></a>
 
             <?php 
              }
@@ -86,18 +85,15 @@ unset($_SESSION["error"]);
                         Контакты
                     </div>
                 </div>
+                <div class="name">Личный кабинет</div>
+                <div class="usermenu">
+                    <a href="#">Личные данные</a>
+                    <a href="#">Корзина</a>
+                    <a href="#">Заказы</a>
 
-                <div id="slider-wrap" class="slider">
-                    <div id="slider">
-                        <div class="slide" style="background: url(img/001.jpg) no-repeat center; background-size: cover;">
+                </div>
+                <div class="pole">
 
-                        </div>
-                        <div class="slide" style="background: url(img/002.jpg) no-repeat center; background-size: cover;">
-
-                        </div>
-                        <div class="slide" style="background: url(img/003.jpg) no-repeat center; background-size: cover;"><iframe width="100%" height="100%" src="http://www.youtube.com/embed/LDZX4ooRsWs?list=PLH6pfBXQXHECUaIU3bu9rjG2L6Uhl5A2q" frameborder="0" allowfullscreen></iframe></div>
-                        <div class="slide" style="background: url(img/004.jpg) no-repeat center; background-size: cover;"></div>
-                    </div>
                 </div>
             </div>
         </div>

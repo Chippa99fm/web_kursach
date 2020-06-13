@@ -36,15 +36,6 @@
 
 }
 
-.conpravo {
-    grid-area: conpravo;
-    font-size: .8em;
-    /* Для основноого контента (изображения) */
-    padding-right: 10px;
-    align-content: space-between;
-
-}
-
 .verh {
 
     grid-area: verh;
@@ -121,12 +112,13 @@
     background-color: #0B304D;
     justify-content: center;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 0fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr 0fr 1fr;
     padding-left: 27vh;
 }
 
 
 .g {
+    font-size: 4vh;
     padding: 1vh;
     border-left: 1px solid white;
     border-right: 1px solid white;
@@ -134,9 +126,10 @@
 
 
 .imi2 {
+            grid-area: imi2;
+z-index: 1;
     text-align: center;
     font-size: 4.2vh;
-    grid-area: imi;
     /* "хэдер" */
 
     padding: 1vh;
@@ -144,34 +137,6 @@
     justify-content: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-}
-
-.menuL {
-    grid-area: levo;
-    border: 1px solid white;
-    background-color: #1D5B8A;
-    /* класс для меню */
-    display: flex;
-    justify-content: flex-start;
-}
-
-.infa {
-    background-color: #1D5B8A;
-    font-size: 0.96em;
-    /* класс для отображения местоположения на сайте */
-    opacity: 0.9;
-}
-
-#menu {
-    background-image: url(https://cdn4.iconfinder.com/data/icons/tupix-1/30/list-512.png);
-
-    background-repeat: no-repeat;
-    /* отображение каритинки для меню */
-    background-size: contain;
-    background-position: center;
-    display: inline-block;
-
-
 }
 
 .contentprav {
@@ -199,6 +164,12 @@
     font-size: 0.85em;
     padding: 3px 5px;
     cursor: pointer;
+}
+
+
+
+#log {
+    font-size: 0.5em;
 }
 
 /*______________________________*/
@@ -233,7 +204,7 @@ nav a {
 
 /* изменяем цвет фона при наведении курсора */
 nav a:hover {
-    color: #000000;
+    color: deepskyblue;
 
 }
 
@@ -257,7 +228,6 @@ ul ul li {
     min-width: 45vh;
 }
 
-/*----------------------------------------------------------------*/
 
 #inputs input {
     background: #f1f1f1;
@@ -280,19 +250,21 @@ ul ul li {
     margin: 10px 0 0 0;
 }
 
-nav #login-content {
+ #login-content {
   display: none;
   position: absolute;
   top: 24px;
   right: 0;
   z-index: 999;
         background-color: #1D5B8A;
+    color: darkblue;
 
 }
 
 #login #submit {
     background-color: white;
     color: black;
+
 }
 
 #login #submit:active {
@@ -318,56 +290,16 @@ nav #login-content {
 }
 
 .login_form {
+    z-index: 2;
     font-size: 0.51em;
 }
 
-/*----------------------------------------------------------------*/
-.reg_midle {
-    /*display: grid;*/
-    grid-column-start: 1;
-    grid-column-end: 2;
-
-    grid-row-start: 0;
-    grid-row-end: 2;
-
-    grid-template-columns: repeat(12, 1fr); 
-    grid-template-rows: repeat(12, 1fr); 
+#login-trigger{
+    background-color: #1D5B8A;
 }
 
-#reg_title {
-    grid-column-start: 3;
-    grid-column-end: 5;
-
-    grid-row-start: 4;
-    grid-row-end: 5;
-    color: black;
-}
-
-#reg_body {
-    grid-column-start: 1;
-    grid-column-end: 12;
-
-    grid-row-start: 5;
-    grid-row-end: 12;
-    color: black;
-    background-color: #5C99C5;
-}
-
-.body_cont {
-    padding: 2vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-row-gap: 5vh;
-}
 
 input{
     color: black;
 }
 
-.logined_container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-       grid-template-rows: 1fr;
-    grid-gap: 1fr;
-}

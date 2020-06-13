@@ -10,19 +10,23 @@ unset($_SESSION["error"]);
 <head>
     <meta charset="utf-8">
     <title>Велосипеды</title>
-    <link rel="stylesheet" href='css/grid.css'>
+            <link rel="stylesheet" href='css/css.css'>
+    <link rel="stylesheet" href='css/register.css'>
     <script ENGINE="text/javascript" src="https://code.jquery.com/jquery-1.11.2.js "></script>
 </head>
 
 <body>
     <div class="grid">
         <div class="imi" id='imi'>
-                <div class="g"><a href="index.php">Главная</a></div>
+            <div class="g"><a href="index.php">Главная</a></div>
             <form class="g">
                 <input type="text" placeholder="Искать здесь...">
                 <button type="submit"></button>
             </form>
             <div></div>
+            <?php
+             if($_COOKIE["logined"] == null) {      
+            ?>
             <nav class="login_form">
                 <ul>
                     <li id="login">
@@ -30,10 +34,10 @@ unset($_SESSION["error"]);
                             Войти
                         </a>
                         <div id="login-content">
-                            <form>
+                            <form action="login_user.php" method="post">
                                 <fieldset id="inputs">
-                                    <input id="username" type="email" name="Email" placeholder="Ваш email адрес" required>
-                                    <input id="password" type="password" name="Password" placeholder="Пароль" required>
+                                    <input id="username" type="email" name="email" placeholder="Ваш email адрес" required>
+                                    <input id="password" type="password" name="password" placeholder="Пароль" required>
 
                                     <input type="submit" id="submit" value="Войти">
                                 </fieldset>
@@ -42,8 +46,26 @@ unset($_SESSION["error"]);
                     </li>
 
                 </ul>
-                <a href="">Регистрация</a>
+                <a href="register.php">Регистрация</a>
             </nav>
+            <?php
+            } else {
+               ?>
+
+            <nav class="login_form">
+                <form action="login_user.php" method="post" class="logined_container">
+                        <a href="#">Корзина
+                    </a>
+                        <!--Здесь будет корзина* -->
+                        <input type="submit" id="submit" value="Выйти">
+                        <!--/*Здесь будет личный кабинет*/ -->              
+                </form>
+            </nav>
+                        <a href="#"><?php echo "" . $_COOKIE["name"] . ""?></a>
+
+            <?php 
+             }
+            ?>
         </div>
         <div class="seredina" id='seredina'>
             <div class='conpravo'>
@@ -66,8 +88,8 @@ unset($_SESSION["error"]);
                 </div>
                 <form action="save_user.php" method="post">
                     <div class="reg_midle">
-                        <div id="reg_title">Регистрация</div>                            
-                        
+                        <div id="reg_title">Регистрация</div>
+
                         <div id="reg_body" class="body_cont">
 
 
@@ -96,7 +118,7 @@ unset($_SESSION["error"]);
                                 <input id="phone_number" type="phone" name="phone_number" autocomplete="off">
                             </div>
                             <div><input type="submit" id="submit" value="Зарегистрироваться" autocomplete="off"></div>
-                             <div> <input type="checkBox" name="check" value="Accept " id="check" ></div>
+                            <div> <input type="checkBox" name="check" value="Accept " id="check"></div>
                             <?php
                                 echo "<br />".$error."<br />";
                             ?>
