@@ -2,8 +2,8 @@
 session_start();
 if($_COOKIE["logined"] != null){
     setcookie("logined", null, time()+3600);
-    header('Location: index.php');
-    exit ();
+    $redicet = $_SERVER['HTTP_REFERER'];
+    header("Location: $redicet");
 }  
 
 if (isset($_POST['email'])) { $email = $_POST['email']; if ($email == '') { unset($email);} } 
@@ -11,7 +11,8 @@ if (isset($_POST['password'])) { $password=$_POST['password']; if ($password =='
 
 if (empty($email) or empty($password))
 {
-    exit ("Вы ввели не всю информацию, вернитесь назад и заполните все поля!");
+    $redicet = $_SERVER['HTTP_REFERER'];
+        header("Location: $redicet");
 }
 
 $email = stripslashes($email);
@@ -27,9 +28,8 @@ $result = mysqli_query($db, "SELECT first_name, id_user, type_name, password FRO
 $myrow = mysqli_fetch_array($result);
 if (empty($myrow['password']))
 {
-    exit ("Извините, введённый вами email или пароль неверный.");
-   // exit ("Нет такого пользвателя");
-     $_SESSION["error"] = "Извините, введённый вами email или пароль неверный.";
+   $redicet = $_SERVER['HTTP_REFERER'];
+        header("Location: $redicet");
 }
 else {
     if (password_verify($password, $myrow['password'])) {
@@ -41,13 +41,13 @@ else {
         setcookie("type", $myrow['type_name'], time()+3600);
         setcookie("name", $myrow['first_name'], time()+3600);
         setcookie("id", $myrow['id_user'], time()+3600);
-        header('Location: index.php');
+        $redicet = $_SERVER['HTTP_REFERER'];
+        header("Location: $redicet");
     exit ();
     }
     else {
-        exit ("Извините, введённый вами email или пароль неверный.");
-       // exit ("Пароли не совпадают $password != ${myrow['password']}");
-        $_SESSION["error"] = "Извините, введённый вами email или пароль неверный.";
+        $redicet = $_SERVER['HTTP_REFERER'];
+        header("Location: $redicet");
     }
 }
 ?>

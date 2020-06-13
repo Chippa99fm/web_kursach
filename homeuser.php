@@ -87,7 +87,7 @@
                 </div>
                 <div class="name">Личный кабинет</div>
                 <div class="usermenu">
-                    <a href="#">Личные данные</a>
+                    <a href="#" style="background-color: #5C99C5;">Личные данные</a>
                     <a href="#">Корзина</a>
                     <a href="#">Заказы</a>
 
