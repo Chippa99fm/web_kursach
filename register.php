@@ -61,7 +61,8 @@ unset($_SESSION["error"]);
                         <!--/*Здесь будет личный кабинет*/ -->              
                 </form>
             </nav>
-                        <a href="#"><?php echo "" . $_COOKIE["name"] . ""?></a>
+                                                <a href="homeuser.php"><?php echo "" . $_COOKIE["name"] . ""?></a>
+
 
             <?php 
              }

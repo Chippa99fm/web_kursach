@@ -1,15 +1,17 @@
 <?php
     session_start();
 include ("db.php");
+$error = $_SESSION["error"];
+unset($_SESSION["error"]);
 
 $id = $_COOKIE["id"];
 $result = mysqli_query($db, "SELECT * FROM users WHERE id_user = '$id'");
 $myrow = mysqli_fetch_array($result);
-$email = $_COOKIE["email"];
-$first_name = $_COOKIE["first_name"];
-$last_name = $_COOKIE["last_name"];
-$password = $_COOKIE["password"];
-$phone = $_COOKIE["phone_number"];
+$email = $myrow["email"];
+$first_name = $myrow["first_name"];
+$last_name = $myrow["last_name"];
+$password = $myrow["password"];
+$phone = $myrow["phone_number"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -108,7 +110,37 @@ $phone = $_COOKIE["phone_number"];
                     <h1>Личные данные</h1>
                     <p>Вы можете изменить или дополнить свои регистрационные данные.</p>
                     <div class="contentpole">
-                            <p>ffffffffffffffffffffd</p>
+                        <form action="edit_user.php" method="post">
+                            <div class="reg_midle">
+                                <div id="reg_body" class="body_cont">
+
+                                    <div>
+                                        <a>Электронная почта</a> <br>
+                                        <input id="email" type="email" name="email" autocomplete="off" value="<?php echo $email; ?>">
+                                    </div>
+                                    <div>
+                                        <a>Пароль</a><br>
+                                        <input id="password" type="password" name="password" autocomplete="off">
+                                    </div>
+                                    <div>
+                                        <a>Фамилия </a><br>
+                                        <input id="second_name" name="second_name" type="text" autocomplete="off" value="<?php echo $last_name; ?>">
+                                    </div>
+                                    <div>
+                                        <a>Имя</a><br>
+                                        <input id="first_name" name="first_name" type="text" autocomplete="off" value="<?php echo $first_name; ?>">
+                                    </div>
+                                    <div>
+                                        <a>Телефон</a><br>
+                                        <input id="phone_number" type="phone" name="phone_number" autocomplete="off" value="<?php echo $phone; ?>">
+                                    </div>
+                                    <div><br><input type="submit" id="submit" value="Изменить" autocomplete="off"></div>
+                                    <?php
+                                echo "<br />".$error."<br />";
+                            ?>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

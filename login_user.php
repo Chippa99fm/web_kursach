@@ -37,10 +37,10 @@ else {
         $_SESSION['type']=$myrow['type_name'];
         $_SESSION['id']=$myrow['id_user'];
         $_SESSION["error"] = "Вы успешно вошли на сайт!";
-        setcookie("logined", "1", time()+3600);
-        setcookie("type", $myrow['type_name'], time()+3600);
-        setcookie("name", $myrow['first_name'], time()+3600);
-        setcookie("id", $myrow['id_user'], time()+3600);
+        setcookie("logined", "1", time()+3600*3);
+        setcookie("type", $myrow['type_name'], time()+3600*3);
+        setcookie("name", $myrow['first_name'], time()+3600*3);
+        setcookie("id", $myrow['id_user'], time()+3600*3);
         $redicet = $_SERVER['HTTP_REFERER'];
         header("Location: $redicet");
     exit ();
