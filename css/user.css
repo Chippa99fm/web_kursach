@@ -3,9 +3,9 @@
     font-size: .8em;
     /* Для основноого контента (изображения) */
     padding-right: 10px;
-    align-content: space-between;
+    align-content: flex-start;
     display: grid;
-    grid-template-rows: 1fr 1fr 10fr;
+    grid-template-rows: 7vh 8vh auto;
     grid-template-columns: 1fr 5fr;
     grid-template-areas: "imi2 imi2"
         "name name"

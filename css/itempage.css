@@ -1,0 +1,38 @@
+.conpravo {
+    grid-area: conpravo;
+    font-size: .8em;
+    /* Для основноого контента (изображения) */
+    padding-right: 10px;
+    align-content: space-between;
+    display: grid;
+    grid-template-rows: 7vh 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: "imi2"
+        "item"
+        "iteminfo";
+
+}
+
+.imi2 {
+    max-height: 7vh;
+}
+
+.item {
+    background-color: #5C99C5;
+    margin-top: 5vh;
+    grid-area: item;
+    padding: 3vh ;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 3fr 6fr 1fr;
+    grid-template-areas: "fotorama infosell iditem";
+}
+
+.iteminfo {
+    grid-area: iteminfo;
+
+}
+
+.fotorama {
+        grid-area: fotorama;
+}
