@@ -1,6 +1,6 @@
 <?php
     session_start();
-include ("db.php");
+    include ("db.php");
 
 $id = $_COOKIE["id"];
 $result = mysqli_query($db, "SELECT * FROM users WHERE id_user = '$id'");
@@ -19,7 +19,7 @@ $phone = $_COOKIE["phone_number"];
     <title>Велосипеды</title>
     <link rel="stylesheet" href='css/css.css'>
     <link rel="stylesheet" href='css/user.css'>
-    <link rel="stylesheet" href='css/userdata.css'>
+    <link rel="stylesheet" href='css/busket.css'>
 
 
     <script ENGINE="text/javascript" src="https://code.jquery.com/jquery-1.11.2.js "></script>
@@ -97,23 +97,45 @@ $phone = $_COOKIE["phone_number"];
                         Контакты
                     </div>
                 </div>
-                <div class="name">Личный кабинет</div>
+                <div class="name">Корзина</div>
                 <div class="usermenu">
-                    <a href="#" style="background-color: #5C99C5;">Личные данные</a>
-                    <a href="basket.php">Корзина</a>
+                    <a href="homeuser.php">Личные данные</a>
+                    <a href="#" style="background-color: #5C99C5;">Корзина</a>
                     <a href="#">Заказы</a>
                     <a></a>
                 </div>
-                <div class="pole">
-                    <h1>Личные данные</h1>
-                    <p>Вы можете изменить или дополнить свои регистрационные данные.</p>
-                    <div class="contentpole">
-                            <p>ffffffffffffffffffffd</p>
-                    </div>
+
+                <div class="list_products">
+                    <?php 
+                    $sum = 0;
+                    $result2 = mysqli_query ($db, "SELECT * FROM user_products join products on user_products.id_products = products.id_product join images on user_products.id_products = images.id_product where id_user = {$_COOKIE["id"]}");
+                    while ($row = mysqli_fetch_array($result2)) {
+                    ?>
+                    <form class="product_content product" action="delete_product.php" method="post">
+                        <img src= <?=$row[12]?> />
+                        <h1 class="text_title"  ><?php echo $row[5];?></h1>
+                        <p class="text_desciption"  ><?php echo $row[6];?></p>
+                        <p class="text_price"  ><?php echo $row[9];  $sum += $row[9]?>Р</p>
+                        <input name="id"  type="text" style="display: none;" name="id" value= <?=md5(rand(0, PHP_INT_MAX))?>>
+                        <input name="hash"  type="text" style="display: none;" name="id" value= <?=$row[4]?> >
+                        <div class="mini_content mini_m">
+                            <!--<div class="mini">Количество</div>
+                            <input class="mini operand" style="background-color: #AFCBE3" value="+" type="button">
+                            <input class="mini" style="width: 2vw; text-align: center;" value="1">
+                            <input class="mini operand" style="background-color: #AFCBE3" value="-" type="button"> -->
+                        </div>
+                        <input type="submit" id="submit" class="text_delete" value="Удалить">
+                    </form>
+                    <?php } ?>
+                    
+                    <form class="total total_cont" action="checkout.php" method="post">
+                         <div>Здесь могла быть ваша реклама</div>
+                        <p >Итого заказ на сумму: <?php echo $sum ?>P</p>
+                        <input class="checkout" type="submit" id="submit" value="Оформить">
+                    </form>
                 </div>
             </div>
         </div>
-
         <div class="niz">
         </div>
 

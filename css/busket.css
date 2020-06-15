@@ -1,0 +1,132 @@
+.product {
+    color: black;
+    background-color: #5C99C5;
+    padding-left: 1vw;
+    margin-left: 4vw;
+    height: 26vh;
+    width: 40vw;
+    border: 1px solid black;
+    margin-bottom: 5vh;
+}
+
+.product_content {
+    display: grid;
+    grid-template-columns: 2fr 5fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+img {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    
+    grid-row-start: 1;
+    grid-row-end: 2;
+    width: 10vw;
+    height: 19vh;
+    margin-top: 2vh;
+    margin-right: 2vh;
+}
+
+.text_title {
+    color: black;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin-top: 2vh;
+}
+
+.text_desciption {
+    color: black;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    
+    grid-row-start: 1;
+    grid-row-end: 3;
+    margin-top: 5vh;
+}
+
+.text_price {
+    color: black;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    
+    grid-row-start: 1;
+    grid-row-end: 2;
+    
+    margin: 10px;
+    margin-left: 2vw;
+    font-size: 1.9em;
+}
+
+.text_delete {
+    color: black;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    
+    grid-row-start: 2;
+    grid-row-end: 3;
+    
+    margin: 10px;
+    margin-left: 2vw;
+    font-size: 1.4em;
+}
+
+.name {
+    margin-left: 2vw;
+}
+
+.mini_content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 10px;
+    background-color: 
+}
+
+.mini {
+    margin-left: 1vw;
+    color: black;
+}
+
+.operand {
+    height: 2.4vh;
+    width: 1.5vw;
+    text-align: center;
+    padding-top: 0.6vh;
+}
+
+.list_products {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(22;1fr);
+}
+
+.total {
+    color: black;
+    color: black;
+    background-color: #5C99C5;
+    padding-left: 1vw;
+    margin-left: 4vw;
+    height: 14vh;
+    width: 17vw;
+    border: 1px solid black;
+    margin-bottom: 5vh;
+    margin-left: 27vw;
+}
+
+.total_cont {
+    color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.checkout{
+    color: black;
+    border: 1px solid black;
+    margin: 5px;
+    width: 60%;
+    
+}
