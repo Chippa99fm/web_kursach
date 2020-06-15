@@ -5,7 +5,7 @@
     padding-right: 10px;
     align-content: space-between;
     display: grid;
-    grid-template-rows: 7vh 1fr 1fr;
+    grid-template-rows: 7vh 1fr auto;
     grid-template-columns: 1fr;
     grid-template-areas: "imi2"
         "item"
@@ -21,18 +21,76 @@
     background-color: #5C99C5;
     margin-top: 5vh;
     grid-area: item;
-    padding: 3vh ;
+    padding: 3vh;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 3fr 6fr 1fr;
+    grid-template-columns: 4fr 8fr 2fr;
     grid-template-areas: "fotorama infosell iditem";
+}
+.iditem{
+    grid-area: iditem;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
 }
 
 .iteminfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 4vh;
+   background-color:  #AFCBE3;
     grid-area: iteminfo;
 
 }
 
 .fotorama {
-        grid-area: fotorama;
+    grid-area: fotorama;
 }
+
+.nameitem{
+    font-size: 2vw;
+}
+
+.infosell {
+    font-size: 1.5vw;
+    margin-left: 2vh;
+    display: flex;
+    flex-direction: column;
+    grid-area: infosell;
+}
+
+.infosell div{
+    padding-top: 1vh;
+}
+
+.otz {
+    display: flex;
+    flex-direction:row;
+}
+
+.pol {
+    color: green;
+}
+
+.otr {
+    color: red;
+    padding-left: 2vh
+}
+
+.poss{
+    display: flex;
+    border-bottom: 1px solid black;
+        background-color: #1D5B8A;
+
+
+
+}
+
+.poss div{
+    padding: 2vh;
+
+    border-right: 1px solid black;
+
+}
+

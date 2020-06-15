@@ -4,7 +4,36 @@ include ("db.php");
 $error = $_SESSION["error"];
 unset($_SESSION["error"]);
 
+$iditem = $_POST['iditem'];
+
+if($iditem == ''){
+    $iditem = $_COOKIE["iditem"];
+}
+else {
+    setcookie("iditem", null, time()+3600*3);  
+}
+
+if($_COOKIE["iditem"] == null)
+    setcookie("iditem", $iditem, time()+3600*3);  
+
+
+include ("db.php");
+
+$result = mysqli_query($db, "SELECT * FROM products WHERE id_product = '$iditem'");
+
+$myrow = mysqli_fetch_array($result);
+
+$description = $myrow['description'];
+
+$price  = $myrow['price'];
+    
+$producer = $myrow['producer'];
+    
+$product_name = $myrow['product_name'];
+
 ?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -13,6 +42,8 @@ unset($_SESSION["error"]);
     <title>Велосипеды</title>
     <link rel="stylesheet" href='css/css.css'>
     <link rel="stylesheet" href='css/itempage.css'>
+        <link rel="stylesheet" href='css/itemdesc.css'>
+
 
 
     <script ENGINE="text/javascript" src="https://code.jquery.com/jquery-1.11.2.js "></script>
@@ -97,18 +128,54 @@ unset($_SESSION["error"]);
                         Контакты
                     </div>
                 </div>
-                <div class="item">
-                    <div class="fotorama"
-      data-nav="thumbs" data-thumbheight="30" data-thumbwidth="50" data-loop="true">>
-                        <img src="https://s.fotorama.io/1.jpg">
-                        <img src="https://s.fotorama.io/2.jpg">
-                        <img src="https://s.fotorama.io/2.jpg">
-                        <img src="https://s.fotorama.io/2.jpg">
-                        <img src="https://s.fotorama.io/2.jpg">
+                <form action="item_functions.php" method="post">
+                    <div class="item">
+
+                        <div class="fotorama" data-nav="thumbs" data-thumbheight="30" data-thumbwidth="50" data-loop="true">>
+                            <img src="https://s.fotorama.io/1.jpg">
+                            <img src="https://s.fotorama.io/2.jpg">
+                            <img src="https://s.fotorama.io/2.jpg">
+                            <img src="https://s.fotorama.io/2.jpg">
+                            <img src="https://s.fotorama.io/2.jpg">
+                        </div>
+                        <div class="infosell">
+                            <div class="nameitem">
+                                Горный велосипед
+                            </div>
+                            <div>
+                                <h1>32000р</h1>
+                            </div>
+                            <div>
+                                <p>Отзывы:</p>
+                            </div>
+                            <div class="otz">
+                                <p class="pol">5 положительных</p>
+                                <p class="otr">3 отрицательных</p>
+                            </div>
+                            <div>
+                                <p>Производитель: ооо</p>
+                            </div>
+                            <div><input type="submit" id="submit" value="   Купить  " autocomplete="off" name="Buy" style="font-size: 2vw;"></div>
+                            <div><input type="submit" id="submit" value="Дообавить в корзину" autocomplete="off" name="Add"></div>
+                        </div>
+                        <div class="iditem">
+                            <div>
+                                <p>id: 11244523</p>
+                            </div>
+                            <div><input type="submit" id="submit" value="Оставить отзыв" autocomplete="off" name="Otz"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="iteminfo">
-                </div>
+                    <div class="iteminfo">
+                        <div class="poss">
+                            <div style=" background-color: #5C99C5;"><a href="itempage.php" style=" color: #000000;">Описание</a></div>
+                             <div><a href="itempage_params.php">Характеристики</a></div>
+                             <div><a href="itempage_otz.php">Отзывы</a></div>
+                        </div>
+                        <div class="desc">
+                            sdfsdfsdf
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -130,7 +197,7 @@ unset($_SESSION["error"]);
 
     </script>
 
-    
+
 </body>
 
 </html>
