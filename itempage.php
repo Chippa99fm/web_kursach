@@ -4,7 +4,7 @@ include ("db.php");
 $error = $_SESSION["error"];
 unset($_SESSION["error"]);
 
-$iditem = 1;//$_POST['iditem'];
+$iditem = $_POST['iditem'];
 
 if($iditem == ''){
     $iditem = $_COOKIE["iditem"];
@@ -133,7 +133,7 @@ $otr = mysqli_fetch_array($result4);
                         Контакты
                     </div>
                 </div>
-                <form action="item_functions.php" method="post">
+                <form action="item_function.php" method="post">
                     <div class="item">
 
                         <div class="fotorama" data-nav="thumbs" data-thumbheight="30" data-thumbwidth="50" data-loop="true">

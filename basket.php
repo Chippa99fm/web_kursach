@@ -108,7 +108,7 @@ $phone = $_COOKIE["phone_number"];
                 <div class="list_products">
                     <?php 
                     $sum = 0;
-                    $result2 = mysqli_query ($db, "SELECT * FROM user_products join products on user_products.id_products = products.id_product join images on user_products.id_products = images.id_product where id_user = {$_COOKIE["id"]}");
+                    $result2 = mysqli_query ($db, "SELECT * FROM user_products join products on user_products.id_products = products.id_product join images on user_products.id_products = images.id_product where id_user = {$_COOKIE["id"]} GROUP BY id_user");
                     while ($row = mysqli_fetch_array($result2)) {
                     ?>
                     <form class="product_content product" action="delete_product.php" method="post">
@@ -117,7 +117,7 @@ $phone = $_COOKIE["phone_number"];
                         <p class="text_desciption"  ><?php echo $row[6];?></p>
                         <p class="text_price"  ><?php echo $row[9];  $sum += $row[9]?>Р</p>
                         <input name="id"  type="text" style="display: none;" name="id" value= <?=md5(rand(0, PHP_INT_MAX))?>>
-                        <input name="hash"  type="text" style="display: none;" name="id" value= <?=$row[4]?> >
+                        <input  type="text" style="display: none;" name="id" value= <?=$row['id_userproducts']?> >
                         <div class="mini_content mini_m">
                             <!--<div class="mini">Количество</div>
                             <input class="mini operand" style="background-color: #AFCBE3" value="+" type="button">
