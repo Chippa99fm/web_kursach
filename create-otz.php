@@ -19,23 +19,7 @@ if($_COOKIE["iditem"] == null)
 
 include ("db.php");
 
-$result = mysqli_query($db, "SELECT * FROM products WHERE id_product = $iditem ");
 
-$myrow = mysqli_fetch_array($result);
-
-$description = $myrow['description'];
-
-$price  = $myrow['price'];
-    
-$producer = $myrow['producer'];
-    
-$product_name = $myrow['product_name'];
-
-$result3 = mysqli_query($db, "SELECT COUNT(id_review) as 'count' FROM reviews WHERE id_product = $iditem AND raiting = '+' ");
-$pol = mysqli_fetch_array($result3);
-
-$result4 = mysqli_query($db, "SELECT COUNT(id_review) as 'count' FROM reviews WHERE id_product = $iditem AND raiting = '-' ");
-$otr = mysqli_fetch_array($result4);
 ?>
 
 
@@ -46,19 +30,11 @@ $otr = mysqli_fetch_array($result4);
     <meta charset="utf-8">
     <title>Велосипеды</title>
     <link rel="stylesheet" href='css/css.css'>
-    <link rel="stylesheet" href='css/itempage.css'>
-        <link rel="stylesheet" href='css/itemdesc.css'>
+    <link rel="stylesheet" href='css/create-otz.css'>
 
 
 
     <script ENGINE="text/javascript" src="https://code.jquery.com/jquery-1.11.2.js "></script>
-    <!-- jQuery 1.8 or later, 33 KB -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-    <!-- Fotorama from CDNJS, 19 KB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-
 </head>
 
 <body>
@@ -133,55 +109,28 @@ $otr = mysqli_fetch_array($result4);
                         Контакты
                     </div>
                 </div>
-                <form action="item_function.php" method="post">
-                    <div class="item">
+                <form action="createotz.php" method="post">
+                    <div class="otzform">
+                        <div class="boxs">
+                            <div>
+                                <h1>Напишите свой озыв</h1>
+                            </div>
+                            <div class="p">
+                                <input type="radio" name="vote" value="+" checked="true">
+                                <label for="contactChoice1">Положительный</label>
+                            </div>
+                             <div class="p">
+                                <input type="radio" name="vote" value="-">
+                                <label for="contactChoice1">Отрицательный</label>
+                            </div>
+                            <div class="submit">
+                                <input type="submit" id="submit" value="Оставить отзыв">
+                            </div>
+                        </div>
+                        <div class="text">
+                            <textarea type="text" name="text" placeholder="Писать озыв здесь..."></textarea>
+                        </div>
 
-                        <div class="fotorama" data-nav="thumbs" data-thumbheight="30" data-thumbwidth="50" data-loop="true">
-                            <?php 
-                    $sum = 0;
-                    $result2 = mysqli_query ($db, "SELECT * FROM images where id_product = $iditem");
-                    while ($row = mysqli_fetch_array($result2)) {
-                    ?>
-                            <img src="<?php echo $row['href']?>">
-                            
-                            <?php } ?>
-                        </div>
-                        <div class="infosell">
-                            <div class="nameitem">
-                                <?php echo $product_name; ?>
-                            </div>
-                            <div>
-                                <h1><?php echo $price; ?>р</h1>
-                            </div>
-                            <div>
-                                <p>Отзывы:</p>
-                            </div>
-                            <div class="otz">
-                                <p class="pol"><?php echo $pol['count']; ?> положительных</p>
-                                <p class="otr"><?php echo $otr['count']; ?> отрицательных</p>
-                            </div>
-                            <div>
-                                <p>Производитель: <?php echo $producer; ?></p>
-                            </div>
-                            <div><input type="submit" id="submit" value="   Купить  " autocomplete="off" name="Buy" style="font-size: 2vw;"></div>
-                            <div><input type="submit" id="submit" value="Дообавить в корзину" autocomplete="off" name="Add"></div>
-                        </div>
-                        <div class="iditem">
-                            <div>
-                                <p>id: <?php echo $iditem; ?></p>
-                            </div>
-                            <div><input type="submit" id="submit" value="Оставить отзыв" autocomplete="off" name="Otz"></div>
-                        </div>
-                    </div>
-                    <div class="iteminfo">
-                        <div class="poss">
-                            <div style=" background-color: #5C99C5;"><a href="itempage.php" style=" color: #000000;">Описание</a></div>
-                             <div><a href="item_params.php">Характеристики</a></div>
-                             <div><a href="item_otz.php">Отзывы</a></div>
-                        </div>
-                        <div class="desc">
-                            <?php echo $description; ?>
-                        </div>
                     </div>
                 </form>
             </div>

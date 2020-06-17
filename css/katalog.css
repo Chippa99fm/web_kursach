@@ -1,0 +1,32 @@
+.conpravo {
+    grid-area: conpravo;
+    font-size: .8em;
+    /* Для основноого контента (изображения) */
+    padding-right: 10px;
+    align-content: space-between;
+     display: grid;
+        grid-template-rows: 7vh auto;
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas: "imi2 imi2"
+                            "colum products";
+
+}
+
+.colum{
+        border-top: 1px solid white;
+
+    grid-area: colum;
+    background-color: #1D5B8A;
+    min-height: 77vh;
+    margin-bottom: 1vh;
+}
+
+.column p{
+    color: black;
+}
+
+.products{
+        grid-area: products;
+color: black;
+}
+

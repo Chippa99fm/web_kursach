@@ -1,0 +1,35 @@
+.otzs{
+    display: flex;
+    flex-direction: column;
+        padding: 2vh;
+
+}
+
+.otziv{
+
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    border-bottom: 1px solid #F0F5F9;
+
+    padding-right: 2vw;
+    padding-top: 2vh;
+padding-bottom: 2vh;
+
+    margin-left: 0.1vw;
+    margin-right: 0.1vw;
+}
+
+.otziv p{
+    color: black;
+    padding-top: 1vh;
+
+}
+
+
+
+.infotz{
+    
+    display: flex;
+    flex-direction: column;
+}
+

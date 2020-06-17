@@ -47,7 +47,8 @@ $otr = mysqli_fetch_array($result4);
     <title>Велосипеды</title>
     <link rel="stylesheet" href='css/css.css'>
     <link rel="stylesheet" href='css/itempage.css'>
-        <link rel="stylesheet" href='css/itemdesc.css'>
+    <link rel="stylesheet" href='css/itemparams.css'>
+
 
 
 
@@ -108,7 +109,6 @@ $otr = mysqli_fetch_array($result4);
                 </form>
             </nav>
             <a href="homeuser.php"><?php echo "" . $_COOKIE["name"] . ""?></a>
-
             <?php 
              }
             ?>
@@ -143,7 +143,7 @@ $otr = mysqli_fetch_array($result4);
                     while ($row = mysqli_fetch_array($result2)) {
                     ?>
                             <img src="<?php echo $row['href']?>">
-                            
+
                             <?php } ?>
                         </div>
                         <div class="infosell">
@@ -175,12 +175,22 @@ $otr = mysqli_fetch_array($result4);
                     </div>
                     <div class="iteminfo">
                         <div class="poss">
-                            <div style=" background-color: #5C99C5;"><a href="itempage.php" style=" color: #000000;">Описание</a></div>
-                             <div><a href="item_params.php">Характеристики</a></div>
-                             <div><a href="item_otz.php">Отзывы</a></div>
+                            <div><a href="itempage.php">Описание</a></div>
+                            <div style=" background-color: #5C99C5;"><a style=" color: #000000;" href="item_params.php">Характеристики</a></div>
+                            <div><a href="item_otz.php">Отзывы</a></div>
                         </div>
-                        <div class="desc">
-                            <?php echo $description; ?>
+                        <div class="params">
+                            <h1>Характеристики</h1>
+                            <div class="allparams">
+                            <?php 
+                                $sum = 0;
+                                $result2 = mysqli_query ($db, "SELECT * FROM params where id_product = $iditem");
+                                while ($row = mysqli_fetch_array($result2)) {
+                            ?>
+                                <p><?php echo $row['param_name']?></p><p><?php echo $row['param_value']?></p>
+                            <?php } ?>   
+
+                            </div>
                         </div>
                     </div>
                 </form>

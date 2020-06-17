@@ -24,9 +24,27 @@ else {
 }
 }
 if (isset($_POST['Buy'])) {
+    unset($_POST['Add']);
+  $result2 = mysqli_query ($db, "INSERT INTO user_products (id_user, id_products, count) 
+  VALUES($id,$iditem,1)");
+    if ($result2=='TRUE')
+{
+        session_start();
+     $_SESSION["error"] = "Товар добавлен в корзину";
+        header("Location: basket.php");
+    exit();
+}
+else {
+    session_start();
+    $_SESSION["error"] = "Ошибка добавления";
+        header("Location: basket.php");
+                exit();
+}
   
 }
 if (isset($_POST['Otz'])) {
+     header("Location: create-otz.php");
+                exit();
   
 }
 ?>

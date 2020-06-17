@@ -13,9 +13,6 @@
 
 }
 
-.imi2 {
-    max-height: 7vh;
-}
 
 .item {
     background-color: #5C99C5;
@@ -41,6 +38,7 @@
     margin-top: 4vh;
    background-color:  #AFCBE3;
     grid-area: iteminfo;
+margin-bottom: 2vh;
 
 }
 

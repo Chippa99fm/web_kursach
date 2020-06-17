@@ -4,11 +4,14 @@
     /* Приминение для всего */
     font-family: serif;
     color: #F0F5F9;
+        -moz-hyphens: auto;
+-webkit-hyphens: auto;
+-ms-hyphens: auto;
+
 }
 
 @media screen and (max-width: 3024px) {
 
-    /* Для узких экранов */
     .grid {
         min-height: 100vh;
         display: grid;
@@ -217,7 +220,7 @@ ul ul {
 /* отображаем выпадающий список при наведении */
 ul li:hover > ul {
     display: inherit;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 10px 10px 10px rgba(0, 0, 1, 0.25);
 }
 
 /* первый уровень выпадающего списка */

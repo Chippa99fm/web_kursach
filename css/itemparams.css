@@ -1,0 +1,28 @@
+.params {
+
+    display: flex;
+    flex-direction: column;
+    color: black;
+    padding: 2vh;
+}
+
+.params h1 {
+    color: black;
+
+}
+
+.params p {
+    color: black;
+
+}
+
+.allparams {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.allparams p {
+    padding-top: 1vh;
+    margin-right: 1vw;
+    border-bottom: 1px dotted black;
+}
