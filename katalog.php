@@ -1,7 +1,8 @@
 <?php
     session_start();
 unset($_SESSION["error"]);
-
+include ("db.php");
+ $result2 = mysqli_query ($db, "SELECT * FROM products join images on products.id_product = images.id_product group by products.id_product");
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +12,7 @@ unset($_SESSION["error"]);
     <title>Велосипеды</title>
     <link rel="stylesheet" href='css/css.css'>
     <link rel="stylesheet" href='css/katalog.css'>
-    
+
     <script ENGINE="text/javascript" src="https://code.jquery.com/jquery-1.11.2.js "></script>
 </head>
 
@@ -88,10 +89,23 @@ unset($_SESSION["error"]);
                     </div>
                 </div>
                 <div class="colum">
-                     
+
+
                 </div>
                 <div class="products">
-                        
+                    <?php 
+                        while ($row = mysqli_fetch_array($result2)) {
+                    ?>
+                    <div>
+                        <form action="katalogphp.php" method="post" class="product">
+                            <div class="cart"><img src='<?php echo $row['href'];?>'></div>
+                            <button style="word-break: break-all;" type="submit" id="submit"  name="product"> <?php echo $row['product_name'];?></button>
+                            <p><?php echo $row['price'];?></p>
+                            <div class="b"><input type="submit" id="submit" value="В корзину" name="basket"></div>
+                            <input name="id"  type="text" style="display: none;" name="id" value='<?php echo $row['id_product'];?>'>
+                        </form>
+                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -114,7 +128,7 @@ unset($_SESSION["error"]);
 
     </script>
 
-   
+
 </body>
 
 </html>
