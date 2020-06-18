@@ -1,3 +1,3 @@
 <?php
-        $db = mysqli_connect ("localhost","root","","shop");
+        $db = mysqli_connect ("localhost","root","","shopp");
     ?>

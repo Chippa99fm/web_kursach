@@ -1,3 +1,47 @@
+
+@media screen  and (max-width: 1089px)  {
+    .boxs h1 {
+    font-size: 2.5vw;
+}
+    label {
+    font-size: 2.5vw
+}
+    input {
+        font-size: 3vw
+
+}
+    
+.text textarea {
+    min-height: 35vh;
+    margin: 1.5vh;
+    width: 80vw;
+    font-size: 2.5vw;
+    color: black;
+}
+}
+
+@media screen  and (min-width: 1090px)  {
+    .boxs h1 {
+    font-size: 2vw;
+}
+    label {
+    font-size: 1.5vw
+}
+    input {
+        font-size: 1.5vw
+
+}
+    
+.text textarea {
+    min-height: 35vh;
+    margin: 1.5vh;
+    width: 67.6vw;
+    font-size: 1.5vw;
+    color: black;
+}
+}
+
+
 .conpravo {
     grid-area: conpravo;
     font-size: .8em;
@@ -20,13 +64,6 @@
     grid-template-rows: 1fr auto;
 }
 
-.text textarea {
-    min-height: 35vh;
-    margin: 1.5vh;
-    width: 67.6vw;
-    font-size: 1.5vw;
-    color: black;
-}
 
 
 .boxs {
@@ -39,23 +76,15 @@
 
 }
 
-.boxs h1 {
-    font-size: 2vw;
-}
+
 
 .p {
     margin: 0.5vw
 }
 
-input {
-        font-size: 1.5vw
 
-}
 
 .submit {
     padding-top: 0.5vh;
 }
 
-label {
-    font-size: 1.5vw
-}

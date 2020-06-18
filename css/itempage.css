@@ -13,8 +13,54 @@
 
 }
 
+@media screen  and (max-width: 1089px)  {
+    .item {
+    background-color: #5C99C5;
+    margin-top: 5vh;
+    grid-area: item;
+    padding: 3vh;
+    display: grid;
+    grid-template-columns: 4fr 5fr;
+    grid-template-rows: 1fr auto;
 
-.item {
+    grid-template-areas: "fotorama infosell" 
+                        "iditem iditem";
+}
+    
+    .infosell {
+    font-size: 2.5vw;
+    margin-left: 2vh;
+    display: flex;
+    flex-direction: column;
+    grid-area: infosell;
+}
+    
+    .nameitem{
+    font-size: 3vw;
+}
+    .iditem{
+    grid-area: iditem;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+}
+
+@media screen  and (min-width: 1090px)  {
+    
+    .nameitem{
+    font-size: 2vw;
+}
+    
+    .infosell {
+    font-size: 1.5vw;
+    margin-left: 2vh;
+    display: flex;
+    flex-direction: column;
+    grid-area: infosell;
+}
+    
+    .item {
     background-color: #5C99C5;
     margin-top: 5vh;
     grid-area: item;
@@ -24,6 +70,15 @@
     grid-template-columns: 4fr 8fr 2fr;
     grid-template-areas: "fotorama infosell iditem";
 }
+    .iditem{
+    grid-area: iditem;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+}
+
+
 
 .item form{
     padding: 0;
@@ -31,12 +86,7 @@
 
 }
 
-.iditem{
-    grid-area: iditem;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-between;
-}
+
 
 .iteminfo {
     display: flex;
@@ -53,17 +103,9 @@ margin-bottom: 2vh;
     grid-area: fotorama;
 }
 
-.nameitem{
-    font-size: 2vw;
-}
 
-.infosell {
-    font-size: 1.5vw;
-    margin-left: 2vh;
-    display: flex;
-    flex-direction: column;
-    grid-area: infosell;
-}
+
+
 
 .infosell div{
     padding-top: 1vh;
