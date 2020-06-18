@@ -2,7 +2,7 @@
     session_start();
 unset($_SESSION["error"]);
 include ("db.php");
- $result2 = mysqli_query ($db, "SELECT * FROM products join images on products.id_product = images.id_product group by products.id_product");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,7 @@ include ("db.php");
     <meta charset="utf-8">
     <title>Велосипеды</title>
     <link rel="stylesheet" href='css/css.css'>
-    <link rel="stylesheet" href='css/katalog.css'>
+    <link rel="stylesheet" href='css/addproduct.css'>
 
     <script ENGINE="text/javascript" src="https://code.jquery.com/jquery-1.11.2.js "></script>
 </head>
@@ -24,7 +24,8 @@ include ("db.php");
                 <input type="text" placeholder="Искать здесь...">
                 <button type="submit"></button>
             </form>
-            <div><?php
+            <div>
+               <?php
              if($_COOKIE["type"] == moder) {      
             ?>
                 <li class="moder">
@@ -45,7 +46,9 @@ include ("db.php");
                 </li>
                 <?php 
              }
-            ?></div>
+            ?>
+            </div>
+
             <?php
              if($_COOKIE["logined"] == null) {      
             ?>
@@ -109,27 +112,75 @@ include ("db.php");
                         Контакты
                     </div>
                 </div>
-                <div class="colum">
+                <form action="createprod.php" method="post" class="logined_container">
+                    <div class="formf">
+                        <div>
+                            <h1>Название товара</h1>
 
+                        </div>
+                        <div>
+                            <textarea type="text" name="name" placeholder="Ваше название..."></textarea>
+                        </div>
+                        <div>
+                            <h1>Производитель товара</h1>
 
-                </div>
-                <div class="products">
-                    <?php 
-                        while ($row = mysqli_fetch_array($result2)) {
-                    ?>
-                    <div>
-                        <form action="katalogphp.php" method="post" class="product">
-                            <div class="cart"><img src='<?php echo $row['href'];?>'></div>
-                            <button style="word-break: break-all;" type="submit" id="submit"  name="product"> <?php echo $row['product_name'];?></button>
-                            <p><?php echo $row['price'];?>р</p>
-                            <?php if($_COOKIE["logined"]!=null) {?>
-                            <div class="b"><input type="submit" id="submit" value="В корзину" name="basket"></div>
-                            <?php } ?>
-                            <input name="id"  type="text" style="display: none;" name="id" value='<?php echo $row['id_product'];?>'>
-                        </form>
+                        </div>
+                        <div>
+                            <textarea type="text" name="producer" placeholder="Ваш производитель..."></textarea>
+                        </div>
+                        <div>
+                            <h1>Ссылки на фото товара</h1>
+                            <p>Писать ссылки, разделяя их: ";"</p>
+                        </div>
+                        <div>
+                            <textarea type="text" name="images" placeholder="Ваши ссылки..." rows="3"></textarea>
+                        </div>
+                        <div>
+                            <h1>Описание товара</h1>
+
+                        </div>
+                        <div>
+                            <textarea type="text" name="desc" placeholder="Ваше описание..." rows="3"></textarea>
+                        </div>
+                        <div>
+                            <h1>Характеристики товара</h1>
+                            <p>Писать в виде:</p>
+                            <p>Ширина-25 сантиметров;Материал-Сталь</p>
+                        </div>
+                        <div>
+                            <textarea type="text" name="params" placeholder="Ваши характерестики..." rows="3"></textarea>
+                        </div>
+
+                        <div>
+                            <h1>Цена товара</h1>
+
+                        </div>
+                        <div>
+                            <textarea type="number" name="price" placeholder="Цена..." rows="1"></textarea>
+                        </div>
+
+                        <div>
+                            <h1>Категория товара</h1>
+
+                        </div>
+                        <div>
+                            <select name="cat">
+                                <?php 
+                                $sum = 0;
+                                $result2 = mysqli_query ($db, "SELECT * FROM categories");
+                                while ($row = mysqli_fetch_array($result2)) {
+                            ?>
+                                <option value="<?php echo $row['id_categories']?>"><?php echo $row['categories_name']?></option>
+                                <?php } ?>
+
+                            </select>
+                        </div>
+
+                        <input type="submit" id="submit" value="Создать">
+
                     </div>
-                    <?php } ?>
-                </div>
+                </form>
+
             </div>
         </div>
 

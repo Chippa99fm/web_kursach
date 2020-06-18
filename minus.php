@@ -13,7 +13,7 @@ if($row['count'] <= 1) {
     exit();  
 }
 
-$result1 = mysqli_query($db, "DELETE FROM user_products WHERE id_userproducrs = $id_userproducts");
+$result1 = mysqli_query($db, "DELETE FROM user_products WHERE id_userproducts = $id_userproducts");
 $redicet = $_SERVER['HTTP_REFERER'];
 header("Location: $redicet");
 exit();

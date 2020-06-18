@@ -1,6 +1,11 @@
-div {
+div{
     color: black;
 }
+
+.imi2 div{
+    color: #F0F5F9;
+}
+
 .title_orders {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr;

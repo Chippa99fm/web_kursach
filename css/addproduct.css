@@ -1,0 +1,58 @@
+.conpravo {
+    grid-area: conpravo;
+    font-size: .8em;
+    /* Для основноого контента (изображения) */
+    padding-right: 10px;
+    align-content: space-between;
+     display: grid;
+        grid-template-rows: 7vh 11fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "imi2"
+                            "formf";
+
+}
+
+.conpravo form{
+        padding-top: 4vh;
+}
+
+
+
+.formf{
+    padding: 2vh;
+    padding-top: 6vh;
+    background-color: #1D5B8A;
+    grid-area: formf;
+     display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.formf div{
+    margin-top: 1vh 
+}
+
+.formf input{
+    margin-top: 1vh 
+}
+
+textarea{
+  color: black;
+    width: 100%; 
+}
+
+.formf p{
+    color: #BFD0F9;
+
+}
+
+select{
+    color: black;
+}
+
+option{
+    color: black;
+}
+
+input[type="submit"]{
+  font-size: 3vh;
+}

@@ -69,7 +69,28 @@ $otr = mysqli_fetch_array($result4);
                 <input type="text" placeholder="Искать здесь...">
                 <button type="submit"></button>
             </form>
-            <div></div>
+            <div><?php
+             if($_COOKIE["type"] == moder) {      
+            ?>
+                <li class="moder">
+                    <a id="login-trigger2" href="#">
+                        Модерская
+                    </a>
+                    <div id="login-content2">
+                        <form action="moder.php" method="post">
+                            <fieldset id="inputs" class="moderitems">
+                                <div class="ad"><input type="submit" id="submit" value="Добавить товар" name="add"></div>
+                                <div>
+                                    <input type="submit" id="submit" value="Удалить товар" name="del">
+                                    <input id="username" type="text" name="idp" placeholder="ID:">
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </li>
+                <?php 
+             }
+            ?></div>
             <?php
              if($_COOKIE["logined"] == null) {      
             ?>
@@ -100,7 +121,7 @@ $otr = mysqli_fetch_array($result4);
 
             <nav class="login_form">
                 <form action="login_user.php" method="post" class="logined_container">
-                    <a href="#">Корзина
+                    <a href="basket.php">Корзина
                     </a>
                     <!--Здесь будет корзина* -->
                     <input type="submit" id="submit" value="Выйти">
@@ -118,12 +139,12 @@ $otr = mysqli_fetch_array($result4);
                 <div class="imi2">
                     <nav>
                         <ul>
-                            <li><a href="#">Каталог</a>
+                            <li><a href="katalog.php">Каталог</a>
                                 <ul>
-                                    <li class="jj"><a href="#">Велосипеды</a></li>
-                                    <li class="jj"><a href="#">Защита</a></li>
-                                    <li class="jj"><a href="#">Аксесуары</a></li>
-                                    <li class="jjj"><a href="#"></a></li>
+                                    <li class="jj"><a href="katalog.php">Велосипеды</a></li>
+                                    <li class="jj"><a href="katalog.php">Защита</a></li>
+                                    <li class="jj"><a href="katalog.php">Аксесуары</a></li>
+                                    <li class="jjj"><a href="katalog.php"></a></li>
                                 </ul>
 
                             </li>
@@ -163,14 +184,18 @@ $otr = mysqli_fetch_array($result4);
                             <div>
                                 <p>Производитель: <?php echo $producer; ?></p>
                             </div>
+                            <?php if($_COOKIE["logined"]!=null) {?>
                             <div><input type="submit" id="submit" value="   Купить  " autocomplete="off" name="Buy" style="font-size: 2vw;"></div>
                             <div><input type="submit" id="submit" value="Дообавить в корзину" autocomplete="off" name="Add"></div>
+                             <?php } ?>
                         </div>
                         <div class="iditem">
                             <div>
                                 <p>id: <?php echo $iditem; ?></p>
                             </div>
+                            <?php if($_COOKIE["logined"]!=null) {?>
                             <div><input type="submit" id="submit" value="Оставить отзыв" autocomplete="off" name="Otz"></div>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="iteminfo">
@@ -196,6 +221,15 @@ $otr = mysqli_fetch_array($result4);
         $(document).ready(function() {
             $('#login-trigger').click(function() {
                 $(this).next('#login-content').slideToggle();
+                $(this).toggleClass('active');
+
+                if ($(this).hasClass('active')) $(this).find('span').html('')
+                else $(this).find('span').html('')
+            })
+        });
+        $(document).ready(function() {
+            $('#login-trigger2').click(function() {
+                $(this).next('#login-content2').slideToggle();
                 $(this).toggleClass('active');
 
                 if ($(this).hasClass('active')) $(this).find('span').html('')

@@ -8,7 +8,7 @@
 .otziv{
 
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 3fr 10fr 1fr;
     border-bottom: 1px solid #F0F5F9;
 
     padding-right: 2vw;
@@ -33,3 +33,6 @@ padding-bottom: 2vh;
     flex-direction: column;
 }
 
+.del{
+    text-align: end;
+}
