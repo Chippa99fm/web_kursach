@@ -28,9 +28,9 @@ if($_COOKIE['price'] == null) {
 <body>
     <div class="grid">
         <div class="imi" id='imi'>
-            <div class="g"><a href="index.php">Главная</a></div>
+            <div class="g"><a href="index.php" style="text-decoration: none;">Главная</a></div>
             <form class="g" action="find_product.php" method="post">
-                <input type="text" class="input_search" name="field">
+                <input type="text" class="input_search" name="field" autocomplete="off">
             </form>
             <div><?php
              if($_COOKIE["type"] == moder) {      
@@ -60,7 +60,7 @@ if($_COOKIE['price'] == null) {
             <nav class="login_form">
                 <ul>
                     <li id="login">
-                        <a id="login-trigger" href="#">
+                         <a id="login-trigger" href="#" style="padding-left:6vw; background: #0B304D;">
                             Войти
                         </a>
                         <div id="login-content">
@@ -193,6 +193,11 @@ if($_COOKIE['price'] == null) {
         </div>
 
         <div class="niz">
+            <div class="bottom">
+                <img src="img/%D0%B2%D0%BA.png" style="width:35px; height:35px;">
+                <a href="https://vk.com/chippa99" style="width:4vw;"> Мы в вк</a>
+            </div>
+            <div>©2020 Магазин “Вело-будни”</div>
         </div>
 
     </div>

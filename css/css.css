@@ -10,7 +10,7 @@
 * {
     margin: 0;
     font-size: 1.0em;
-     font-family: robo;
+    font-family: robo;
     /* Приминение для всего */
     color: #F0F5F9;
     -moz-hyphens: auto;
@@ -289,7 +289,6 @@ nav ul {
 nav ul li {
     display: list-item;
     background-color: #1D5B8A;
-
 }
 
 /* стилизуем ссылки */
@@ -414,7 +413,8 @@ input {
 
 .moder {
     list-style-type: none;
-
+    padding-top: 3%;
+    color: black;
 }
 
 .moderitems {
@@ -425,7 +425,10 @@ input {
 }
 
 #login-trigger2 {
-    background-color: #1D5B8A;
+    background-color: #F0F5F9;
+    text-decoration: none;
+    color: black;
+    font-size: 0.6em;
 }
 
 #login-content2 {
@@ -454,4 +457,10 @@ input {
     background: url(/img/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA.png) no-repeat 28vw 7px;
     padding-left: 30px;
     background-color: #F0F5F9;
+}
+
+.bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15%;
 }

@@ -19,10 +19,10 @@ unset($_SESSION["error"]);
         <div class="imi" id='imi'>
             <div class="g"><a href="index.php" style="text-decoration: none;">Главная</a></div>
             <form class="g" action="find_product.php" method="post">
-                <input type="text" class="input_search" name="field">
+                <input type="text" class="input_search" name="field" autocomplete="off">
             </form>
             <div>
-                 <?php
+                <?php
              if($_COOKIE["type"] == moder) {      
             ?>
                 <li class="moder">
@@ -52,7 +52,7 @@ unset($_SESSION["error"]);
             <nav class="login_form">
                 <ul>
                     <li id="login">
-                        <a id="login-trigger" href="#">
+                        <a id="login-trigger" href="#" style="padding-left:6vw; background: #0B304D;">
                             Войти
                         </a>
                         <div id="login-content">
@@ -118,7 +118,9 @@ unset($_SESSION["error"]);
                         <div class="slide" style="background: url(img/002.jpg) no-repeat center; background-size: cover;">
 
                         </div>
-                        <div class="slide" style="background: url(img/003.jpg) no-repeat center; background-size: cover;"><iframe width="100%" height="100%" src="http://www.youtube.com/embed/LDZX4ooRsWs?list=PLH6pfBXQXHECUaIU3bu9rjG2L6Uhl5A2q" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="slide" style="background: url(img/003.jpg) no-repeat center; background-size: cover;">
+
+                        </div>
                         <div class="slide" style="background: url(img/004.jpg) no-repeat center; background-size: cover;"></div>
                     </div>
                 </div>
@@ -126,6 +128,11 @@ unset($_SESSION["error"]);
         </div>
 
         <div class="niz">
+            <div class="bottom">
+                <img src="img/%D0%B2%D0%BA.png" style="width:35px; height:35px;">
+                <a href="https://vk.com/chippa99" style="width:4vw;"> Мы в вк</a>
+            </div>
+            <div>©2020 Магазин “Вело-будни”</div>
         </div>
 
     </div>

@@ -19,8 +19,8 @@ unset($_SESSION["error"]);
     <div class="grid">
         <div class="imi" id='imi'>
             <div class="g"><a href="index.php" style="text-decoration: none;">Главная</a></div>
-            <form class="g">
-                 <input type="text" class="input_search">
+          <form class="g" action="find_product.php" method="post">
+                <input type="text" class="input_search" name="field" autocomplete="off">
             </form>
             <div><?php
              if($_COOKIE["type"] == moder) {      
@@ -50,7 +50,7 @@ unset($_SESSION["error"]);
             <nav class="login_form">
                 <ul>
                     <li id="login">
-                        <a id="login-trigger" href="#">
+                         <a id="login-trigger" href="#" style="padding-left:6vw; background: #0B304D;">
                             Войти
                         </a>
                         <div id="login-content">
@@ -140,7 +140,7 @@ unset($_SESSION["error"]);
                                 <input id="phone_number" type="phone" name="phone_number" autocomplete="off">
                             </div>
                             <div><input type="submit" id="submit" value="Зарегистрироваться" autocomplete="off"></div>
-                            <div> <input type="checkBox" name="check" value="Accept " id="check"></div>
+                            <div><input type="checkBox" name="check" value="Accept " id="check"><a style="padding-left: 1vw;">Предоставляя свои персональные данные Покупатель даёт согласие на обработку, хранение и использование своих персональных данных на основании ФЗ № 152-ФЗ «О персональных данных» от 27.07.2006 г. </a></div>
                             <?php
                                 echo "<br />".$error."<br />";
                             ?>
@@ -150,6 +150,11 @@ unset($_SESSION["error"]);
             </div>
         </div>
         <div class="niz">
+            <div class="bottom">
+                <img src="img/%D0%B2%D0%BA.png" style="width:35px; height:35px;">
+                <a href="https://vk.com/chippa99" style="width:4vw;"> Мы в вк</a>
+            </div>
+            <div>©2020 Магазин “Вело-будни”</div>
         </div>
     </div>
 

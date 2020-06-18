@@ -38,7 +38,7 @@ $phone = $myrow["phone_number"];
         <div class="imi" id='imi'>
             <div class="g"><a href="index.php" style="text-decoration: none;">Главная</a></div>
             <form class="g" action="find_product.php" method="post">
-                <input type="text" class="input_search" name="field">
+                <input type="text" class="input_search" name="field" autocomplete="off">
             </form>
             <div><?php
              if($_COOKIE["type"] == moder) {      
@@ -173,6 +173,11 @@ $phone = $myrow["phone_number"];
         </div>
 
         <div class="niz">
+            <div class="bottom">
+                <img src="img/%D0%B2%D0%BA.png" style="width:35px; height:35px;">
+                <a href="https://vk.com/chippa99" style="width:4vw;"> Мы в вк</a>
+            </div>
+            <div>©2020 Магазин “Вело-будни”</div>
         </div>
 
     </div>
