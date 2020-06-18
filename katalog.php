@@ -121,7 +121,7 @@ if($_COOKIE['price'] == null) {
                 <div class="colum lis_params">
                     <form action="search.php" method="post">
                         <div class="scroll">
-                            <p style="padding-left:3vw;">0Р</p>
+                            <p style="padding-left:1vw;">0Р</p>
                             <input type="range" name="range" min="0" max="100000" list="rangeList1" value="<?php echo $_COOKIE['price']?>">
                             <datalist id="rangeList1">
                                 <option value="0" label="0">
