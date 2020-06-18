@@ -33,10 +33,9 @@ $phone = $_COOKIE["phone_number"];
 <body>
     <div class="grid">
         <div class="imi" id='imi'>
-            <div class="g"><a href="index.php">Главная</a></div>
-            <form class="g">
-                <input type="text" placeholder="Искать здесь...">
-                <button type="submit"></button>
+            <div class="g"><a href="index.php"  style="text-decoration: none;">Главная</a></div>
+            <form class="g"  action="find_product.php" method="post">
+                 <input type="text" class="input_search" name="field">
             </form>
             <div><?php
              if($_COOKIE["type"] == moder) {      

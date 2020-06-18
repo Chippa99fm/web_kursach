@@ -4,17 +4,19 @@
     /* Для основноого контента (изображения) */
     padding-right: 10px;
     align-content: space-between;
-     display: grid;
-        grid-template-rows: 7vh 11fr;
-        grid-template-columns: 1fr 3fr;
-        grid-template-areas: "imi2 imi2"
-                            ". slider";
+    display: grid;
+    grid-template-rows: 7vh 11fr;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "imi2 imi2"
+        ". slider";
 
 }
 
-.slider{
-        grid-area: slider;
-
+.slider {
+    grid-area: slider;
+    padding-top: 3vh;
+    padding-left: 2vw;
+    width: 90%;
 }
 
 #slider-wrap {
@@ -27,9 +29,7 @@
     position: relative;
 }
 
-#slider img {
-
-}
+#slider img {}
 
 .slide {
     width: 100%;
@@ -42,7 +42,7 @@
 }
 
 .sli-links .control-slide {
-            background-color: black;
+    background-color: black;
 
     margin: 2px;
     display: inline-block;
@@ -51,7 +51,7 @@
 }
 
 .sli-links .control-slide:hover {
-            background-color: gainsboro;
+    background-color: gainsboro;
 
     cursor: pointer;
     background-position: center center;
@@ -60,6 +60,3 @@
 .sli-links .control-slide.active {
     background-position: center top;
 }
-
-
-

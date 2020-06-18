@@ -2,7 +2,7 @@
     session_start();
 unset($_SESSION["error"]);
 include ("db.php");
-if($_COOKIE['request'] != null)
+if($_COOKIE['request'] != null && $_COOKIE['request'] != "")
     $result2 = mysqli_query ($db, $_COOKIE['request']);
 else 
     $result2 = mysqli_query ($db, "SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories group by products.id_product");
@@ -29,9 +29,8 @@ if($_COOKIE['price'] == null) {
     <div class="grid">
         <div class="imi" id='imi'>
             <div class="g"><a href="index.php">Главная</a></div>
-            <form class="g">
-                <input type="text" placeholder="Искать здесь...">
-                <button type="submit"></button>
+            <form class="g" action="find_product.php" method="post">
+                <input type="text" class="input_search" name="field">
             </form>
             <div><?php
              if($_COOKIE["type"] == moder) {      
@@ -161,7 +160,7 @@ if($_COOKIE['price'] == null) {
                                 $result33 = mysqli_query ($db, "SELECT * FROM categories"); 
                                 while ($row = mysqli_fetch_array($result33)) { 
                                 ?>
-                                <option <?php if($row['id_categories'] == $_COOKIE['categories']) {echo "SELECTED";} ?> value="<?php echo $row['id_categories']?>"> <?php echo $row['categories_name']?></option>
+                                <option <?php if($row['id_categories'] == $_COOKIE['categories']/*$_GET['categories']*/) {echo "SELECTED";} ?> value="<?php echo $row['id_categories']?>"> <?php echo $row['categories_name']?></option>
                                 <?php } ?>
 
                             </select>

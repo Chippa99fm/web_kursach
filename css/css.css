@@ -1,12 +1,21 @@
+@font-face {
+
+    font-family: robo;
+
+    src: url(/fonts/Roboto-Regular.ttf);
+    /* Путь к файлу со шрифтом */
+
+}
+
 * {
     margin: 0;
-    font-size: 1.01em;
+    font-size: 1.0em;
+     font-family: robo;
     /* Приминение для всего */
-    font-family: serif;
     color: #F0F5F9;
-        -moz-hyphens: auto;
--webkit-hyphens: auto;
--ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
 
 }
 
@@ -65,7 +74,6 @@
 
 
 .verhlevo {
-
     grid-area: verhlevo;
     background-color: palegoldenrod;
     /* верх меню,ссылки */
@@ -129,8 +137,8 @@
 
 
 .imi2 {
-            grid-area: imi2;
-z-index: 1;
+    grid-area: imi2;
+    z-index: 1;
     text-align: center;
     font-size: 4.2vh;
     /* "хэдер" */
@@ -181,12 +189,14 @@ nav ul {
     margin: 0;
     list-style: none;
     position: relative;
+    padding-right: 6.2vw;
 }
 
 /* применяем inline-block позиционирование к элементам навигации */
 nav ul li {
     display: list-item;
     background-color: #1D5B8A;
+
 }
 
 /* стилизуем ссылки */
@@ -221,6 +231,8 @@ ul ul {
 ul li:hover > ul {
     display: inherit;
     box-shadow: 10px 10px 10px rgba(0, 0, 1, 0.25);
+    width: 11vw;
+    padding-top: 1vh;
 }
 
 /* первый уровень выпадающего списка */
@@ -228,7 +240,9 @@ ul ul li {
     float: none;
     display: list-item;
     position: relative;
-    min-width: 45vh;
+    min-width: 20vh;
+    width: 17vw;
+    border: 1px solid;
 }
 
 
@@ -253,13 +267,13 @@ ul ul li {
     margin: 10px 0 0 0;
 }
 
- #login-content {
-  display: none;
-  position: absolute;
-  top: 7vh;
-  right: 0;
-  z-index: 999;
-        background-color: #1D5B8A;
+#login-content {
+    display: none;
+    position: absolute;
+    top: 7vh;
+    right: 0;
+    z-index: 999;
+    background-color: #1D5B8A;
     color: darkblue;
 
 }
@@ -297,49 +311,55 @@ ul ul li {
     font-size: 0.51em;
 }
 
-#login-trigger{
+#login-trigger {
     background-color: #1D5B8A;
 }
 
 
-input{
+input {
     color: black;
 }
 
-.moder{
-    list-style-type: none; 
+.moder {
+    list-style-type: none;
 
 }
 
-.moderitems{
-            font-size: 0.51em;
+.moderitems {
+    font-size: 0.51em;
 
     display: flex;
     flex-direction: column;
 }
 
-#login-trigger2{
+#login-trigger2 {
     background-color: #1D5B8A;
 }
 
- #login-content2 {
-  display: none;
-  position: fixed;
-  top: 7vh;
-  right: 20vw;
-  z-index: 999;
-        background-color: #1D5B8A;
+#login-content2 {
+    display: none;
+    position: fixed;
+    top: 7vh;
+    right: 20vw;
+    z-index: 999;
+    background-color: #1D5B8A;
     color: darkblue;
 
 }
 
-.ad{
+.ad {
     width: 100%;
 }
 
-
-
-
-
-
-
+.input_search {
+    margin-top: 5px;
+    margin-right: 20px;
+    width: 28vw;
+    height: 4vh;
+    outline: none;
+    padding: 0px;
+    margin: 0px;
+    background: url(/img/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA.png) no-repeat 28vw 7px;
+    padding-left: 30px;
+    background-color: #F0F5F9;
+}
