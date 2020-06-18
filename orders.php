@@ -109,9 +109,9 @@ $phone = $_COOKIE["phone_number"];
                         <ul>
                             <li><a href="katalog.php">Каталог</a>
                                 <ul>
-                                    <li class="jj"><a href="katalog.php">Велосипеды</a></li>
-                                    <li class="jj"><a href="katalog.php">Защита</a></li>
-                                    <li class="jj"><a href="katalog.php">Аксесуары</a></li>
+                                    <li class="jj"><a href="katalog.php" id="vel">Велосипеды</a></li>
+                                    <li class="jj"><a href="katalog.php" id="def">Защита</a></li>
+                                    <li class="jj"><a href="katalog.php" id="aks">Аксесуары</a></li>
                                     <li class="jjj"><a href="katalog.php"></a></li>
                                 </ul>
 
@@ -141,7 +141,7 @@ $phone = $_COOKIE["phone_number"];
 
                     <?php 
                     $sum = 0;
-                    $result2 = mysqli_query ($db, "SELECT * FROM orders join orders_products on orders.id_order = orders_products.id_order join products on orders_products.id_product = products.id_product join images on products.id_product = images.id_product join statuses on orders.id_status = statuses.id_status WHERE id_user = ${_COOKIE["id"]} GROUP BY orders.id_order");
+                    $result2 = mysqli_query ($db, "SELECT * FROM orders join orders_products on orders.id_order = orders_products.id_order join products on orders_products.id_product = products.id_product join images on products.id_product = images.id_product join statuses on orders.id_status = statuses.id_status WHERE id_user = ${_COOKIE["id"]} GROUP BY orders.id_order ORDER BY orders.id_order DESC");
                     while ($row = mysqli_fetch_array($result2)) {      
                     ?>
                     <div class="title_orders_second">
@@ -151,7 +151,7 @@ $phone = $_COOKIE["phone_number"];
                     <div class="product_content product">
                         <div class="products_in_order">
                             <?php 
-                        $result3 = mysqli_query ($db, "SELECT * FROM orders join orders_products on orders.id_order = orders_products.id_order join products on orders_products.id_product = products.id_product join images on products.id_product = images.id_product WHERE id_user = ${_COOKIE["id"]} AND orders_products.id_order = ${row['id_order']} GROUP BY orders_products.id_product");
+                        $result3 = mysqli_query ($db, "SELECT * FROM orders join orders_products on orders.id_order = orders_products.id_order join products on orders_products.id_product = products.id_product join images on products.id_product = images.id_product WHERE id_user = ${_COOKIE["id"]} AND orders_products.id_order = ${row['id_order']} GROUP BY orders_products.id_product ORDER BY orders.id_order DESC");
                         while ($row1 = mysqli_fetch_array($result3)) {        
                     ?>
                             <div class="descript_product_in_order">
@@ -210,7 +210,30 @@ $phone = $_COOKIE["phone_number"];
                 else $(this).find('span').html('')
             })
         });
-
+$(document).ready(function() {
+            $('#vel').click(function() {
+                document.cookie = "producer=all";
+                document.cookie = "categories=1";
+                document.cookie = "price=99999";
+                document.cookie = "request=SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE categories.id_categories=1 group by products.id_product ";
+            })
+        });
+        $(document).ready(function() {
+            $('#def').click(function() {
+                document.cookie = "producer=all";
+                document.cookie = "categories=2";
+                document.cookie = "price=99999";
+                document.cookie = "request=SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE categories.id_categories=2 group by products.id_product ";
+            })
+        });
+        $(document).ready(function() {
+            $('#aks').click(function() {
+                document.cookie = "producer=all";
+                document.cookie = "categories=3";
+                document.cookie = "price=99999";
+                document.cookie = "request=SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE categories.id_categories=3 group by products.id_product ";
+            })
+        });
     </script>
 
     

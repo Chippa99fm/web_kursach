@@ -109,9 +109,9 @@ $phone = $_COOKIE["phone_number"];
                         <ul>
                             <li><a href="katalog.php">Каталог</a>
                                 <ul>
-                                    <li class="jj"><a href="katalog.php">Велосипеды</a></li>
-                                    <li class="jj"><a href="katalog.php">Защита</a></li>
-                                    <li class="jj"><a href="katalog.php">Аксесуары</a></li>
+                                    <li class="jj"><a href="katalog.php" id="vel">Велосипеды</a></li>
+                                    <li class="jj"><a href="katalog.php" id="def">Защита</a></li>
+                                    <li class="jj"><a href="katalog.php" id="aks">Аксесуары</a></li>
                                     <li class="jjj"><a href="katalog.php"></a></li>
                                 </ul>
 
@@ -157,7 +157,7 @@ $phone = $_COOKIE["phone_number"];
                         <h1 class="text_title"><?php echo $row['product_name'];?></h1>
                         <p class="text_desciption"><?php echo $row['description'];?></p>
                         <p class="text_price"><?php echo $row['price'];  
-                        $sum += $row['sum_price']?>Р</p>
+                        $sum += $row2['sum_price']?>₽</p>
                         <input type="text" style="display: none;" name="id" value=<?=$row['id_products']?>>
 
                         <input type="submit" id="submit" class="text_delete" value="Удалить">
@@ -166,16 +166,16 @@ $phone = $_COOKIE["phone_number"];
 
                     <form class="total total_cont" action="checkout.php" method="post">
                         <div>Здесь могла быть ваша реклама</div>
-                        <p>Итого заказ на сумму: <?php echo $sum ?>P</p>
+                        <p>Итого заказ на сумму: <?php echo $sum ?>₽</p>
                         <input class="checkout" type="submit" id="submit" value="Оформить">
                     </form>
                 </div>
             </div>
         </div>
         <div class="niz">
-            
-                <a href="https://vk.com/chippa99" style="width:20vw;"> Мы в вк</a>
-            
+
+            <a href="https://vk.com/chippa99" style="width:20vw;"> Мы в вк</a>
+
             <div>©2020 Магазин “Вело-будни”</div>
         </div>
 
@@ -200,10 +200,34 @@ $phone = $_COOKIE["phone_number"];
                 else $(this).find('span').html('')
             })
         });
+        $(document).ready(function() {
+            $('#vel').click(function() {
+                document.cookie = "producer=all";
+                document.cookie = "categories=1";
+                document.cookie = "price=99999";
+                document.cookie = "request=SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE categories.id_categories=1 group by products.id_product ";
+            })
+        });
+        $(document).ready(function() {
+            $('#def').click(function() {
+                document.cookie = "producer=all";
+                document.cookie = "categories=2";
+                document.cookie = "price=99999";
+                document.cookie = "request=SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE categories.id_categories=2 group by products.id_product ";
+            })
+        });
+        $(document).ready(function() {
+            $('#aks').click(function() {
+                document.cookie = "producer=all";
+                document.cookie = "categories=3";
+                document.cookie = "price=99999";
+                document.cookie = "request=SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE categories.id_categories=3 group by products.id_product ";
+            })
+        });
 
     </script>
 
-    
+
 </body>
 
 </html>

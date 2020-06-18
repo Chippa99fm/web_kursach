@@ -98,9 +98,9 @@ unset($_SESSION["error"]);
                         <ul>
                             <li><a href="katalog.php?categories=all">Каталог</a>
                                 <ul>
-                                    <li class="jj"><a href="katalog.php?categories=1&producer=all">Велосипеды</a></li>
-                                    <li class="jj"><a href="katalog.php?categories=2&producer=all">Защита</a></li>
-                                    <li class="jj"><a href="katalog.php?categories=3&producer=all">Аксесуары</a></li>
+                                    <li class="jj"><a href="katalog.php" id="vel">Велосипеды</a></li>
+                                    <li class="jj"><a href="katalog.php" id="def">Защита</a></li>
+                                    <li class="jj"><a href="katalog.php" id="aks">Аксесуары</a></li>
                                     <li class="jjj"><a href="katalog.php"></a></li>
                                 </ul>
 
@@ -157,7 +157,30 @@ unset($_SESSION["error"]);
                 else $(this).find('span').html('')
             })
         });
-
+$(document).ready(function() {
+            $('#vel').click(function() {
+                document.cookie = "producer=all";
+                document.cookie = "categories=1";
+                document.cookie = "price=99999";
+                document.cookie = "request=SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE categories.id_categories=1 group by products.id_product ";
+            })
+        });
+        $(document).ready(function() {
+            $('#def').click(function() {
+                document.cookie = "producer=all";
+                document.cookie = "categories=2";
+                document.cookie = "price=99999";
+                document.cookie = "request=SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE categories.id_categories=2 group by products.id_product ";
+            })
+        });
+        $(document).ready(function() {
+            $('#aks').click(function() {
+                document.cookie = "producer=all";
+                document.cookie = "categories=3";
+                document.cookie = "price=99999";
+                document.cookie = "request=SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE categories.id_categories=3 group by products.id_product ";
+            })
+        });
     </script>
 
     <script>

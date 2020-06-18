@@ -104,9 +104,9 @@ if($_COOKIE['price'] == null) {
                         <ul>
                             <li><a href="katalog.php">Каталог</a>
                                 <ul>
-                                    <li class="jj"><a href="katalog.php">Велосипеды</a></li>
-                                    <li class="jj"><a href="katalog.php">Защита</a></li>
-                                    <li class="jj"><a href="katalog.php">Аксесуары</a></li>
+                                    <li class="jj"><a href="katalog.php" id="vel">Велосипеды</a></li>
+                                    <li class="jj"><a href="katalog.php" id="def">Защита</a></li>
+                                    <li class="jj"><a href="katalog.php" id="aks">Аксесуары</a></li>
                                     <li class="jjj"><a href="katalog.php"></a></li>
                                 </ul>
 
@@ -182,7 +182,7 @@ if($_COOKIE['price'] == null) {
                         <form action="katalogphp.php" method="post" class="product">
                             <div class="cart"><img src='<?php echo $row['href'];?>'></div>
                             <button style="word-break: break-all;" type="submit" id="submit" name="product"> <?php echo $row['product_name'];?></button>
-                            <p><?php echo $row['price'];?></p>
+                            <p><?php echo $row['price'];?>₽</p>
                             <div class="b"><input type="submit" id="submit" value="В корзину" name="basket"></div>
                             <input name="id" type="text" style="display: none;" name="id" value='<?php echo $row['id_product'];?>'>
                         </form>
@@ -220,7 +220,30 @@ if($_COOKIE['price'] == null) {
                 else $(this).find('span').html('')
             })
         });
-
+$(document).ready(function() {
+            $('#vel').click(function() {
+                document.cookie = "producer=all";
+                document.cookie = "categories=1";
+                document.cookie = "price=99999";
+                document.cookie = "request=SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE categories.id_categories=1 group by products.id_product ";
+            })
+        });
+        $(document).ready(function() {
+            $('#def').click(function() {
+                document.cookie = "producer=all";
+                document.cookie = "categories=2";
+                document.cookie = "price=99999";
+                document.cookie = "request=SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE categories.id_categories=2 group by products.id_product ";
+            })
+        });
+        $(document).ready(function() {
+            $('#aks').click(function() {
+                document.cookie = "producer=all";
+                document.cookie = "categories=3";
+                document.cookie = "price=99999";
+                document.cookie = "request=SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE categories.id_categories=3 group by products.id_product ";
+            })
+        });
     </script>
 
 
