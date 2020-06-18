@@ -40,9 +40,10 @@ div {
     padding-left: 1vw;
     margin-left: 4vw;
     height: 26vh;
-    width: 42vw;
+   
     border: 1px solid black;
     margin-bottom: 5vh;
+    margin-right: 11.44vw;
 }
 
 .product_content {
