@@ -133,10 +133,11 @@ img {
     grid-template-columns: 1fr;
     grid grid-template-rows: repeat(20,1fr); 
     overflow: auto;
+    height: 24vh;
 }
 
 .descript_product_in_order {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid grid-template-rows: 1fr 1fr; 
+    grid-template-columns: 1fr ;
+    grid grid-template-rows: 1fr; 
 }

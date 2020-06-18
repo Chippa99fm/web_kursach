@@ -71,7 +71,7 @@ unset($_SESSION["error"]);
                 <div class="imi2">
                     <nav>
                         <ul>
-                            <li><a href="#">Каталог</a>
+                            <li><a href="katalog.php">Каталог</a>
                                 <ul>
                                     <li class="jj"><a href="#">Велосипеды</a></li>
                                     <li class="jj"><a href="#">Защита</a></li>

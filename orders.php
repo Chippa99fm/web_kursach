@@ -124,27 +124,33 @@ $phone = $_COOKIE["phone_number"];
                     </div>
                     <div class="product_content product">
                         <div class="products_in_order">
-                          <?php 
-                        $result3 = mysqli_query ($db, "SELECT * FROM orders join orders_products on orders.id_order = orders_products.id_order join products on orders_products.id_product = products.id_product join images on products.id_product = images.id_product WHERE id_user = ${_COOKIE["id"]} AND orders_products.id_order = ${row['id_order']}");
+                            <?php 
+                        $result3 = mysqli_query ($db, "SELECT * FROM orders join orders_products on orders.id_order = orders_products.id_order join products on orders_products.id_product = products.id_product join images on products.id_product = images.id_product WHERE id_user = ${_COOKIE["id"]} AND orders_products.id_order = ${row['id_order']} GROUP BY orders_products.id_product");
                         while ($row1 = mysqli_fetch_array($result3)) {        
                     ?>
-                      <div class="descript_product_in_order">
-                        <img src=<?=$row1['href']?> />
-                        <div class="text_title"><?php echo $row1['product_name'];?></div>
-                        <div class="text_desciption"><?php echo $row1['description'];?></div>
-                     </div>
-                        <?php } ?>
+                            <div class="descript_product_in_order">
+                                <img src=<?=$row1['href']?> />
+                                <div class="text_title"><?php echo $row1['product_name'];?></div>
+                                <div class="text_desciption"><?php echo $row1['description'];?></div>
                             </div>
+                            <?php } ?>
+                        </div>
                         <div class="text_price">
-                            <form class="status_container"  action="pay.php" method="post">
+                            <div class="status_container">
                                 <input type="submit" id="submit" class="status" disabled="disabled" value=<?=$row['name_status']?>>
-                                <input type="submit" id="submit" class="status" value="Подтвердить получение" style="font-size: 0.53em;">
+                                <form action="accept.php" method="post">
+                                    <input type="submit" id="submit" class="status" value="Подтвердить получение" style="font-size: 0.53em;">
+                                    <input name="id_order" type="text" style="display: none;" name="id_order" value='<?php echo $row['id_order'];?>'>
+                                </form>
                                 <div></div>
-                                <input type="submit" id="submit" class="status" style="display: none;" name="id_order"  value = <?=$row['id_order']?> >
-                                <input type="submit" id="submit" class="status" value="Оплатить">
+                                
+                                <form action="pay.php" method="post">
+                                    <input type="submit" id="submit" class="status" value="Оплатить">
+                                    <input name="id_order" type="text" style="display: none;" name="id_order" value='<?php echo $row['id_order'];?>'>
+                                </form>
 
-                            </form>
-                        </div>                       
+                            </div>
+                        </div>
                     </div>
                     <?php } ?>
                 </div>
