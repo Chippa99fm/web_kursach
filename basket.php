@@ -109,28 +109,30 @@ $phone = $_COOKIE["phone_number"];
                     <?php 
                     $sum = 0;
                     $result2 = mysqli_query ($db, "SELECT *, count(*) count, SUM(price) sum_price FROM user_products join products on user_products.id_products = products.id_product join images on user_products.id_products = images.id_product where id_user = ${_COOKIE["id"]} GROUP BY id_products");
+                    
+                    $result4 = mysqli_query ($db, "SELECT *, count(*) count, SUM(price) sum_price FROM user_products join products on user_products.id_products = products.id_product where id_user = ${_COOKIE["id"]} GROUP BY id_products");
                     while ($row = mysqli_fetch_array($result2)) {
+                       $row2 = mysqli_fetch_array($result4) 
                     ?>
                     <div class="mini_content mini_m">
                         <div class="mini">Количество</div>
                         <form action="minus.php" method="post">
                             <input class="mini operand" style="background-color: #AFCBE3" value="-" type="submit">
                             <input type="text" style="display: none;" name="id" value=<?=$row['id_products']?>>
-                            <input type="text" style="display: none;" name="id_userproducts" value=<?=$row['id_userproducrs']?>>
+                            <input type="text" style="display: none;" name="id_userproducts" value="<?=$row['id_userproducts']?>">
                         </form>
-                        <input class="mini" style="width: 2vw; text-align: center;" name="count" value=<?=$row['count']?>>
+                        <input class="mini" style="width: 2vw; text-align: center;" name="count" value=<?=$row2['count']?>>
                         <form action="plus.php" method="post">
                             <input class="mini operand" style="background-color: #AFCBE3" value="+" type="submit">
                             <input type="text" style="display: none;" name="id" value=<?=$row['id_products']?>>
                         </form>
                     </div>
                     <form class="product_content product" action="delete_product.php" method="post">
-                        <img src=<?=$row[12]?> />
-                        <h1 class="text_title"><?php echo $row[5];?></h1>
-                        <p class="text_desciption"><?php echo $row[6];?></p>
-                        <p class="text_price"><?php echo $row[9];  
+                        <img src="<?=$row['href']?>" />
+                        <h1 class="text_title"><?php echo $row['product_name'];?></h1>
+                        <p class="text_desciption"><?php echo $row['description'];?></p>
+                        <p class="text_price"><?php echo $row['price'];  
                         $sum += $row['sum_price']?>Р</p>
-                        <input name="hash" type="text" style="display: none;" value=<?=md5(rand(0, PHP_INT_MAX))?>>
                         <input type="text" style="display: none;" name="id" value=<?=$row['id_products']?>>
 
                         <input type="submit" id="submit" class="text_delete" value="Удалить">

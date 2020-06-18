@@ -4,59 +4,61 @@
     /* Для основноого контента (изображения) */
     padding-right: 10px;
     align-content: space-between;
-     display: grid;
-        grid-template-rows: 7vh auto;
-        grid-template-columns: 1fr 3fr;
-        grid-template-areas: "imi2 imi2"
-                            "colum products";
+    display: grid;
+    grid-template-rows: 7vh auto;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "imi2 imi2"
+        "colum products";
 
 }
 
-.colum{
-        top: 1vh ;
+.colum {
+    top: 1vh;
     margin-top: 1vh;
-  position: sticky;
+    position: sticky;
     grid-area: colum;
     background-color: #1D5B8A;
-    min-height: 77vh;  
+    min-height: 77vh;
     max-height: 77vh;
-overflow: auto;
-   margin-bottom: 1vh;
+    overflow: auto;
+    margin-bottom: 1vh;
+    width: 80%
 }
 
 
 .colum::-webkit-scrollbar {
-  width: 1vw;;
-  background-color: #f9f9fd;
+    width: 1vw;
+    ;
+    background-color: #f9f9fd;
 }
 
 .colum::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #0B304D;
+    border-radius: 10px;
+    background-color: #0B304D;
 }
 
 .colum::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
-  border-radius: 10px;
-  background-color: #f9f9fd;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: #f9f9fd;
 }
 
 
-.column p{
+.column p {
     color: black;
 }
 
-.products{
-        grid-area: products;
-color: black;
+.products {
+    grid-area: products;
+    color: black;
     justify-content: space-around;
-align-content: flex-start;
+    align-content: flex-start;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.product{
+.product {
     padding: 0.5vh;
     background-color: #1D5B8A;
     margin: 1vh;
@@ -67,46 +69,94 @@ align-content: flex-start;
     color: black;
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: flex-end;
 }
 
 
 
-.product button[type="submit"]{
+.product button[type="submit"] {
     border: 0.1px solid #0B304D;
-padding:2px;
-background:none;
-cursor:pointer;
+    padding: 2px;
+    background: none;
+    cursor: pointer;
     color: white;
 }
 
 
-.b input[type="submit"]{
+.b input[type="submit"] {
     border: 0.1px solid white;
-padding:2px;
-background:none;
-cursor:pointer;
+    padding: 2px;
+    background: none;
+    cursor: pointer;
     color: white;
 }
 
-.product{
-    
-}
+.product {}
 
-.cart{
+.cart {
     overflow: hidden;
 }
 
-.cart img{
-height: auto;
-width: 100%;
+.cart img {
+    height: auto;
+    width: 100%;
 
 }
 
+.lis_params {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-row-gap: 3vh;
+}
 
+input[type=range]::-webkit-slider-runnable-track {
+    border-radius: 10px;
+    height: 10px;
+    border: 1px solid #000;
+    background-color: #ccc;
+}
 
+.scroll {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    margin-top: 2vh;
+    margin-bottom:9%;
+    width: 80%;
+   
+}
 
+.producer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 90%;
+    margin-left: 0.6vw;
+}
 
+.categories {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 0.7vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
 
+.box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
+select{ 
+color: black; 
+} 
+
+option{ 
+color: black; 
+}
+
+.input_b {
+    width: 80%;
+   margin-left: 1.4vw;
+}
