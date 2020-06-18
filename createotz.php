@@ -14,7 +14,7 @@ if ($result=='TRUE')
         session_start();
      $_SESSION["error"] = "Товар добавлен в корзину";
     $redicet = $_SERVER['HTTP_REFERER'];
-        header("Location: item_otz.ph");
+        header("Location: item_otz.php");
     exit();
 }
 else {

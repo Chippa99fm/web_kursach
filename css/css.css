@@ -306,3 +306,40 @@ input{
     color: black;
 }
 
+.moder{
+    list-style-type: none; 
+
+}
+
+.moderitems{
+            font-size: 0.51em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#login-trigger2{
+    background-color: #1D5B8A;
+}
+
+ #login-content2 {
+  display: none;
+  position: fixed;
+  top: 7vh;
+  right: 20vw;
+  z-index: 999;
+        background-color: #1D5B8A;
+    color: darkblue;
+
+}
+
+.ad{
+    width: 100%;
+}
+
+
+
+
+
+
+

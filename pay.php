@@ -1,6 +1,7 @@
 <?php
 session_start();
 $id_user = $_COOKIE['id']; 
+
 $id_order = $_POST['id_order']; 
 
 include ("db.php");
