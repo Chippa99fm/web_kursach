@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 if($_COOKIE["logined"] != null){
     setcookie("logined", null);
         setcookie("type", null);
@@ -7,6 +9,7 @@ if($_COOKIE["logined"] != null){
     $redicet = $_SERVER['HTTP_REFERER'];
     header("Location: $redicet");
 }  
+
 
 if (isset($_POST['email'])) { $email = $_POST['email']; if ($email == '') { unset($email);} } 
 if (isset($_POST['password'])) { $password=$_POST['password']; if ($password =='') { unset($password);} }
@@ -52,4 +55,21 @@ else {
         header("Location: $redicet");
     }
 }
+/*
+if (isset($_POST['new'])) {
+    include ("db.php");
+if (isset($_POST['email'])) { $email = $_POST['email']; if ($email == '') { unset($email);} } 
+
+    $pas = rand (100000, 999999);
+    $password = password_hash($pas, PASSWORD_DEFAULT);
+    $result2 = mysqli_query ($db, "UPDATE users SET password='$password' WHERE email = $email ");
+    
+  $to = "$email";
+  $subject = "Robot - Робот";
+  $message = "Hello World!<br /><i>Это письмо отправлено <b>роботом</b> 
+  и отвечать на него не нужно! Новый пароль:$pas</i>";
+  $headers = "From: MyRusakov.ru <abc@gmail.com>\r\nContent-type: text/html; charset=windows-1251 \r\n";
+  mail ($to, $subject, $message, $headers);
+
+}*/
 ?>

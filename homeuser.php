@@ -173,10 +173,9 @@ $phone = $myrow["phone_number"];
         </div>
 
         <div class="niz">
-            <div class="bottom">
-                <img src="img/%D0%B2%D0%BA.png" style="width:35px; height:35px;">
-                <a href="https://vk.com/chippa99" style="width:4vw;"> Мы в вк</a>
-            </div>
+            
+                <a href="https://vk.com/chippa99" style="width:20vw;"> Мы в вк</a>
+            
             <div>©2020 Магазин “Вело-будни”</div>
         </div>
 

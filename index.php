@@ -61,7 +61,9 @@ unset($_SESSION["error"]);
                                     <input id="username" type="email" name="email" placeholder="Ваш email адрес" required>
                                     <input id="password" type="password" name="password" placeholder="Пароль" required>
 
-                                    <input type="submit" id="submit" value="Войти">
+                                    <input type="submit" id="submit" value="Войти" name="in">
+                                    
+
                                 </fieldset>
                             </form>
                         </div>
@@ -128,10 +130,9 @@ unset($_SESSION["error"]);
         </div>
 
         <div class="niz">
-            <div class="bottom">
-                <img src="img/%D0%B2%D0%BA.png" style="width:35px; height:35px;">
-                <a href="https://vk.com/chippa99" style="width:4vw;"> Мы в вк</a>
-            </div>
+            
+                <a href="https://vk.com/chippa99" style="width:20vw;"> Мы в вк</a>
+            
             <div>©2020 Магазин “Вело-будни”</div>
         </div>
 
