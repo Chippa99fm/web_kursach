@@ -5,18 +5,21 @@ $id_user = $_COOKIE['id'];
 $price = $_POST['range']; 
 $producer = $_POST['producer'];
 
-$cat = $_POST['cat']; 
+$cat = $_POST['cat'];
+$field = $_COOKIE['field']; 
 
 include ("db.php");
 
 $request = "SELECT * FROM products join images on products.id_product = images.id_product join categories on products.id_categories = categories.id_categories WHERE price > 0 AND price <= $price";
-    
+   
 
 if($producer != null && $producer != "all") 
     $request .= " AND producer = '$producer' ";
 if($cat != "all")
     $request .= " AND products.id_categories = $cat";
-
+if($field != null) {
+    $request .= " AND products.product_name LIKE '%$field%' ";
+}
 $request .= " group by products.id_product";
 
 setcookie("price", $price, time()+3600);

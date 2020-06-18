@@ -8,7 +8,7 @@ $request = "SELECT * FROM products join images on products.id_product = images.i
 setcookie("price", 99999, time()+3600);
 setcookie("producer", "all", time()+3600);
 setcookie("categories", "all", time()+3600);
-
+setcookie("field", null, time()+3600);
 setcookie("request", $request, time()+3600);
 $redicet = $_SERVER['HTTP_REFERER'];
 header("Location: $redicet");

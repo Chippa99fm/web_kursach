@@ -18,10 +18,9 @@ unset($_SESSION["error"]);
 <body>
     <div class="grid">
         <div class="imi" id='imi'>
-            <div class="g"><a href="index.php">Главная</a></div>
+            <div class="g"><a href="index.php" style="text-decoration: none;">Главная</a></div>
             <form class="g">
-                <input type="text" placeholder="Искать здесь...">
-                <button type="submit"></button>
+                 <input type="text" class="input_search">
             </form>
             <div><?php
              if($_COOKIE["type"] == moder) {      

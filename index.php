@@ -17,10 +17,9 @@ unset($_SESSION["error"]);
 <body>
     <div class="grid">
         <div class="imi" id='imi'>
-            <div class="g"><a href="index.php">Главная</a></div>
-            <form class="g">
-                <input type="text" placeholder="Искать здесь...">
-                <button type="submit"></button>
+            <div class="g"><a href="index.php" style="text-decoration: none;">Главная</a></div>
+            <form class="g" action="find_product.php" method="post">
+                <input type="text" class="input_search" name="field">
             </form>
             <div>
                  <?php
@@ -95,11 +94,11 @@ unset($_SESSION["error"]);
                 <div class="imi2">
                     <nav>
                         <ul>
-                            <li><a href="katalog.php">Каталог</a>
+                            <li><a href="katalog.php?categories=all">Каталог</a>
                                 <ul>
-                                    <li class="jj"><a href="katalog.php">Велосипеды</a></li>
-                                    <li class="jj"><a href="katalog.php">Защита</a></li>
-                                    <li class="jj"><a href="katalog.php">Аксесуары</a></li>
+                                    <li class="jj"><a href="katalog.php?categories=1&producer=all">Велосипеды</a></li>
+                                    <li class="jj"><a href="katalog.php?categories=2&producer=all">Защита</a></li>
+                                    <li class="jj"><a href="katalog.php?categories=3&producer=all">Аксесуары</a></li>
                                     <li class="jjj"><a href="katalog.php"></a></li>
                                 </ul>
 
