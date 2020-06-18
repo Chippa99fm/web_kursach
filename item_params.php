@@ -66,9 +66,8 @@ $otr = mysqli_fetch_array($result4);
     <div class="grid">
         <div class="imi" id='imi'>
             <div class="g"><a href="index.php">Главная</a></div>
-            <form class="g">
-                <input type="text" placeholder="Искать здесь...">
-                <button type="submit"></button>
+            <form class="g" action="find_product.php" method="post">
+                <input type="text" class="input_search" name="field" autocomplete="off">
             </form>
             <div><?php
              if($_COOKIE["type"] == moder) {      
@@ -223,6 +222,11 @@ $otr = mysqli_fetch_array($result4);
         </div>
 
         <div class="niz">
+            <div class="bottom">
+                <img src="img/%D0%B2%D0%BA.png" style="width:35px; height:35px;">
+                <a href="https://vk.com/chippa99" style="width:4vw;"> Мы в вк</a>
+            </div>
+            <div>©2020 Магазин “Вело-будни”</div>
         </div>
 
     </div>
