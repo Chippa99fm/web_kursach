@@ -25,7 +25,9 @@ padding-bottom: 2vh;
 
 }
 
-
+.lol{
+    max-height:  25vh;
+}
 
 .infotz{
     
@@ -36,3 +38,6 @@ padding-bottom: 2vh;
 .del{
     text-align: end;
 }
+
+
+

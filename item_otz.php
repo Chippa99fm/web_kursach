@@ -59,6 +59,8 @@ $otr = mysqli_fetch_array($result4);
     <!-- Fotorama from CDNJS, 19 KB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+        <link rel="stylesheet" href='css/itempage.css'>
+
 
 </head>
 
@@ -154,51 +156,56 @@ $otr = mysqli_fetch_array($result4);
                         Контакты
                     </div>
                 </div>
-                <form action="item_function.php" method="post">
-                    <div class="item">
+                
 
-                        <div class="fotorama" data-nav="thumbs" data-thumbheight="30" data-thumbwidth="50" data-loop="true">
-                            <?php 
+                        <div class="item">
+                                                <form action="item_function.php" method="post"  class="item">
+
+                            <div class="fotorama" data-nav="thumbs" data-thumbheight="30" data-thumbwidth="50" data-loop="true">
+                                <?php 
                     $sum = 0;
                     $result2 = mysqli_query ($db, "SELECT * FROM images where id_product = $iditem");
                     while ($row = mysqli_fetch_array($result2)) {
                     ?>
-                            <img src="<?php echo $row['href']?>">
+                                <img src="<?php echo $row['href']?>">
 
-                            <?php } ?>
+                                <?php } ?>
+                            </div>
+                            <div class="infosell">
+                                <div class="nameitem">
+                                    <?php echo $product_name; ?>
+                                </div>
+                                <div>
+                                    <h1><?php echo $price; ?>р</h1>
+                                </div>
+                                <div>
+                                    <p>Отзывы:</p>
+                                </div>
+                                <div class="otz">
+                                    <p class="pol"><?php echo $pol['count']; ?> положительных</p>
+                                    <p class="otr"><?php echo $otr['count']; ?> отрицательных</p>
+                                </div>
+                                <div>
+                                    <p>Производитель: <?php echo $producer; ?></p>
+                                </div>
+                                <?php if($_COOKIE["logined"]!=null) {?>
+                                <div><input type="submit" id="submit" value="   Купить  " autocomplete="off" name="Buy" style="font-size: 2vw;"></div>
+                                <div><input type="submit" id="submit" value="Дообавить в корзину" autocomplete="off" name="Add"></div>
+                                <?php } ?>
+                            </div>
+                            <div class="iditem">
+                                <div>
+                                    <p>id: <?php echo $iditem; ?></p>
+                                </div>
+                                <?php if($_COOKIE["logined"]!=null) {?>
+                                <div><input type="submit" id="submit" value="Оставить отзыв" autocomplete="off" name="Otz"></div>
+                                <?php } ?>
+                            </div>
+                    </form>
+
                         </div>
-                        <div class="infosell">
-                            <div class="nameitem">
-                                <?php echo $product_name; ?>
-                            </div>
-                            <div>
-                                <h1><?php echo $price; ?>р</h1>
-                            </div>
-                            <div>
-                                <p>Отзывы:</p>
-                            </div>
-                            <div class="otz">
-                                <p class="pol"><?php echo $pol['count']; ?> положительных</p>
-                                <p class="otr"><?php echo $otr['count']; ?> отрицательных</p>
-                            </div>
-                            <div>
-                                <p>Производитель: <?php echo $producer; ?></p>
-                            </div>
-                            <?php if($_COOKIE["logined"]!=null) {?>
-                            <div><input type="submit" id="submit" value="   Купить  " autocomplete="off" name="Buy" style="font-size: 2vw;"></div>
-                            <div><input type="submit" id="submit" value="Дообавить в корзину" autocomplete="off" name="Add"></div>
-                            <?php } ?>
-                        </div>
-                        <div class="iditem">
-                            <div>
-                                <p>id: <?php echo $iditem; ?></p>
-                            </div>
-                            <?php if($_COOKIE["logined"]!=null) {?>
-                            <div><input type="submit" id="submit" value="Оставить отзыв" autocomplete="off" name="Otz"></div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </form>
+                
+
                 <div class="iteminfo">
                     <div class="poss">
                         <div><a href="itempage.php">Описание</a></div>
@@ -234,7 +241,6 @@ $otr = mysqli_fetch_array($result4);
                         <?php } ?>
                     </div>
                 </div>
-
             </div>
         </div>
 

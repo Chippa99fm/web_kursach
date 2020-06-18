@@ -51,18 +51,5 @@ if (isset($_POST['Otz'])) {
                 exit();
   
 }
-if (isset($_POST['del'])) {
-        unset($_POST['del']);
 
-    $id_rev=$_POST["id"];
-        unset($_POST['id']);
-
-    
-    $result1 = mysqli_query($db, "DELETE FROM reviews WHERE id_review = $id_rev");
-    
-    
-     $redicet = $_SERVER['HTTP_REFERER'];
-        header("Location: $redicet");
-                exit();
-}
 ?>
