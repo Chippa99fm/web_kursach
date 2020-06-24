@@ -74,7 +74,7 @@ $otr = mysqli_fetch_array($result4);
             ?>
                 <li class="moder">
                     <a id="login-trigger2" href="#">
-                        Модерская
+                        Управление
                     </a>
                     <div id="login-content2">
                         <form action="moder.php" method="post">
@@ -190,7 +190,7 @@ $otr = mysqli_fetch_array($result4);
                         </div>
                         <div class="iditem">
                             <div>
-                                <p>id: <?php echo $iditem; ?></p>
+                                <p>Код: <?php echo $iditem; ?></p>
                             </div>
                             <?php if($_COOKIE["logined"]!=null) {?>
                             <div><input type="submit" id="submit" value="Оставить отзыв" autocomplete="off" name="Otz"></div>

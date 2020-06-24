@@ -54,7 +54,7 @@ include ("db.php");
             ?>
                 <li class="moder">
                     <a id="login-trigger2" href="#">
-                        Модерская
+                        Управление
                     </a>
                     <div id="login-content2">
                         <form action="moder.php" method="post">

@@ -43,7 +43,7 @@ $phone = $_COOKIE["phone_number"];
             ?>
                 <li class="moder">
                     <a id="login-trigger2" href="#">
-                        Модерская
+                        Управление
                     </a>
                     <div id="login-content2">
                         <form action="moder.php" method="post">
@@ -146,7 +146,7 @@ $phone = $_COOKIE["phone_number"];
                             <input type="text" style="display: none;" name="id" value=<?=$row['id_products']?>>
                             <input type="text" style="display: none;" name="id_userproducts" value="<?=$row['id_userproducts']?>">
                         </form>
-                        <input class="mini" style="width: 2vw; text-align: center;" name="count" value=<?=$row2['count']?>>
+                        <input class="mini" style="width: 2vw; text-align: center;" name="count" disabled="true" value=<?=$row2['count']?>>
                         <form action="plus.php" method="post">
                             <input class="mini operand" style="background-color: #AFCBE3" value="+" type="submit">
                             <input type="text" style="display: none;" name="id" value=<?=$row['id_products']?>>

@@ -27,7 +27,7 @@ unset($_SESSION["error"]);
             ?>
                 <li class="moder">
                     <a id="login-trigger2" href="#">
-                        Модерская
+                        Управление
                     </a>
                     <div id="login-content2">
                         <form action="moder.php" method="post">
@@ -137,7 +137,7 @@ unset($_SESSION["error"]);
                             </div>
                             <div>
                                 <a>Телефон</a><br>
-                                <input id="phone_number" type="phone" name="phone_number" autocomplete="off">
+                                <input id="phone_number" input type="number"  name="phone_number" autocomplete="off">
                             </div>
                             <div><input type="submit" id="submit" value="Зарегистрироваться" autocomplete="off"></div>
                             <div><input type="checkBox" name="check" value="Accept " id="check"><a style="padding-left: 1vw;">Предоставляя свои персональные данные Покупатель даёт согласие на обработку, хранение и использование своих персональных данных на основании ФЗ № 152-ФЗ «О персональных данных» от 27.07.2006 г. </a></div>

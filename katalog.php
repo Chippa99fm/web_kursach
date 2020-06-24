@@ -37,7 +37,7 @@ if($_COOKIE['price'] == null) {
             ?>
                 <li class="moder">
                     <a id="login-trigger2" href="#">
-                        Модерская
+                        Управление
                     </a>
                     <div id="login-content2">
                         <form action="moder.php" method="post">
@@ -183,7 +183,9 @@ if($_COOKIE['price'] == null) {
                             <div class="cart"><img src='<?php echo $row['href'];?>'></div>
                             <button style="word-break: break-all;" type="submit" id="submit" name="product"> <?php echo $row['product_name'];?></button>
                             <p><?php echo $row['price'];?>₽</p>
+                            <?php if($_COOKIE["logined"]!=null) {?>
                             <div class="b"><input type="submit" id="submit" value="В корзину" name="basket"></div>
+                             <?php } ?>
                             <input name="id" type="text" style="display: none;" name="id" value='<?php echo $row['id_product'];?>'>
                         </form>
                     </div>
